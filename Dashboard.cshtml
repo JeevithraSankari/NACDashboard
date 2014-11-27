@@ -1,0 +1,2623 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/ico" href="../NACContent/images/Logowithoutwhitespace.ico" />
+    <!-- Bootstrap -->
+    <link href="../NACContent/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+        rel="stylesheet" type="text/css" />
+    <link href="../NACContent/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../NACContent/css/rickshaw.min.css" type="text/css" />
+    <link rel="stylesheet" href="../NACContent/css/morris.css" type="text/css" />
+    <link href="../NACContent/css/minoral.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        th span
+        {
+            margin-right: 5px;
+            font-size: 85%;
+        }
+        .anto
+        {
+            display: inline;
+            padding: 0.2em 0.6em 0.3em;
+            font-weight: bold;
+            line-height: 1;
+            color: #FFF;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25em;
+            font-size: 10px;
+        }
+        .antoHeadingFixed
+        {
+        	position:fixed !important;
+        	z-index:1020;
+        	top:60px;
+        	padding-right:0px !important;
+        }
+    </style>
+</head>
+<body class="brownish-scheme">
+    <!-- Preloader -->
+    <div class="mask">
+        <div id="loader">
+        </div>
+    </div>
+    <!--/Preloader -->
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+        <!-- Make page fluid -->
+        <div class="row">
+            <!-- Fixed navbar -->
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <!-- Branding -->
+                <div class="navbar-header col-md-2">
+                    <a class="navbar-brand" href="#"><strong>NAC</strong> <span class="divider vertical">
+                    </span>Dashboard </a>
+                </div>
+                <!-- Branding end -->
+                <!-- .nav-collapse -->
+                <div class="navbar-collapse">
+                    <!-- Content collapsing at 768px to sidebar -->
+                    <div class="collapsing-content">
+                        <!-- Quick Actions -->
+                        <ul class="nav navbar-nav">
+                            <li class="divided"><a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
+                                </li>                            
+                        </ul>
+                        <!-- Quick Actions end -->
+                        <!-- Search -->
+                        <div class="search">                            
+                            Dashboard for <strong>
+                                <label id="lblcurrentdate">
+                                </label>
+                            </strong>
+                        </div>
+                        <!-- Search end -->
+                        <!-- User Controls -->
+                        <div class="user-controls">
+                            <ul>
+                                <li class="dropdown messages">@* <a class="dropdown-toggle" data-toggle="dropdown" href="#">*@
+                                    <span class="badge badge-red" id="user-new-messages"></span><strong>
+                                        <label id="lblLoggedInby">
+                                        </label>
+                                    </strong>@* </a>*@
+                                    <div class="profile-photo">
+                                        <img src="../NACContent/images/profile.jpg" alt />
+                                    </div>
+                                </li>
+                                <li class="dropdown settings"><a class="dropdown-toggle options" data-toggle="dropdown"
+                                    href="#"><i class="fa fa-cog"></i></a>
+                                    <ul class="dropdown-menu arrow">
+                                        <li>
+                                            <h3>
+                                                Color schemes:</h3>
+                                            <ul id="color-schemes">
+                                                <li><a href="#" class="brownish-scheme" title="Brownish"></a></li>
+                                                <li><a href="#" class="darkgrey-scheme" title="Dark Grey"></a></li>
+                                                <li><a href="#" class="lightgrey-scheme" title="Light Grey"></a></li>
+                                                <li><a href="#" class="cyan-scheme" title="Cyan"></a></li>
+                                                <li><a href="#" class="red-scheme" title="Red"></a></li>
+                                                <li><a href="#" class="orange-scheme" title="Orange"></a></li>
+                                                <li><a href="#" class="green-scheme" title="Green"></a></li>
+                                                <li><a href="#" class="amethyst-scheme" title="Amethyst"></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="/DashboardML"><i class="fa fa-power-off"></i>Logout</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- User Controls end -->
+                    </div>
+                    <!-- /Content collapsing at 768px to sidebar -->
+                    <!-- Sidebar -->
+                    <!-- Sidebar end -->
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- Fixed navbar end -->
+            <!-- Page content -->
+            <div id="content" class="col-md-12 full-page-Anto">
+                <!-- content main container -->
+                <div class="main">
+                    <!-- row -->
+                    <div class="row">
+                        <!-- col 12 -->
+                        <div class="col-md-12 antoHeadingFixed">
+                            <!-- tile -->
+                            <section class="tile">
+                                <!-- tile header -->
+                                <div class="tile-header">
+                                    <h1>
+                                        Showroom Dashboard</h1>
+                                    @*<div class="controls">
+                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>*@
+                                    <div class="controls">
+                                     @*<button id="btnBranch" type="button" class="btn btn-green margin-bottom-20">
+                                            Switch To TNagar</button>*@
+                                        <button type="button" class="btn btn-cyan margin-bottom-20">
+                                            Report</button>
+                                        <button id="btnTable" type="button" class="btn btn-cyan margin-bottom-20">
+                                            Table</button>
+                                    </div>
+                                </div>
+                                <!-- /tile header -->
+                            </section>
+                            <!-- /tile -->
+                        </div>
+                        <!-- /col 12 -->
+                        <!-- col 12 -->
+                        <div class="col-md-12" style="padding-top:60px;">
+                            <!-- tile -->
+                            <section class="tile">
+                                <!-- tile header -->
+                                @*  <div class="tile-header">
+                    <h1><strong>Sparkline</strong> Charts</h1>
+                    <div class="controls">
+                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
+                  </div>*@
+                                <!-- /tile header -->
+                                <!-- tile body -->
+                                <div class="tile-body">
+                                    <div class="row">
+                                        <div id="DIVDailySales" class="col-md-3" style="width: 250px;">
+                                            <div style="width: 100%; text-align: center;"><h5>
+                                               DAILY SALES Vs DAILY TARGET (wt) (EXCLUDING SILVERMINE)</h5></div>
+                                            <span id="sparkline01"></span>
+                                            <div style="width: 100%; text-align: center;"><table width="100%" border="0"><tr><td><img src="../../NACImages/reddot.jpg" />TARGET</td><td><img src="../../NACImages/bluedot.jpg" />SALES</td></tr></table></div>
+
+                                        </div>
+                                        <div id="DIVDailysalSIL" class="col-md-3">
+                                <!-- tile -->
+                               @* <section class="tile">*@
+                                
+                                
+                                    <!-- tile header -->
+                                    <div style="width: 100%; text-align: center;">
+                                        <h5>
+                                            DAILY SALES Vs DAILY TARGET (wt) SILVERMINE</h5>
+                                    </div>
+                                    <!-- /tile header -->
+                                    <div class="tile-body">
+                                        <div id="gauge06" class="inline-block" style="width: 100%; height: 220px;" data-tool-tip="show">
+                                        </div>
+                                        <div id="AntoTest" style="width: 100%; text-align: center;">
+                                            <table width="100%" border="0">
+                                                <tr>
+                                                <td>
+                                                         <label id="lblPrediction">
+                                                        </label>
+                                                    </td>                                                  
+                                                    <td style="width: 50%">
+                                                       <label id="lblNetwt">
+                                                        </label>
+                                                    </td>
+                                                    
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                
+                            @*</section>*@
+                                <!-- /tile -->
+                            </div>
+                                        <div class="col-md-3" id="DivFloorWiseSale">
+                                            <div style="width: 100%; text-align: center;"><h5>
+                                                FLOOR WISE SALES (Amt)</h5></div>
+                                            @*<span id="donut-example"></span>*@
+                                            <div id="donut-example" style="height: 250px;">
+                                            </div>
+                                        </div>  
+                                        <div class="col-md-3" id="DIVTrendinsale">
+                                            <div style="width: 100%; text-align: center;"><h5>
+                                                TREND IN SALES (Amt) (Last 7 Days)</h5></div>
+                                            
+                                             <div id="combined-chart" style="height: 250px;">
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <!-- /tile body -->
+                                <!-- show code btn -->
+                                @* <button class="btn show-code" data-toggle="modal" data-target="#sparklinesModal">
+                                show code
+                              </button>*@
+                                <!-- /show code btn -->
+                            </section>
+                            <!-- /tile -->
+                        </div>
+                        <!-- col 12 -->
+                        <!-- col 12 -->
+                        <div class="col-md-12">
+                            <!--Top Ten-->
+                            <div id="divTopTenStoreWiseSales" class="col-lg-4 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5>
+                                        <strong>TOP 10 ITEM WISE SALES (wt)</strong></h5>
+                                </div>
+                                @*<a href="../Home/StoreWiseSales" onclick="divTopTenStoreWiseSales();" style="text-decoration: none;">*@
+                                    <section class="tile">
+                                    
+                                        <div id="container">
+                                        </div>@* style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"*@
+                                    
+                                </section>
+                                @*</a>*@
+                            </div>
+                            <!--/Top Ten-->
+                            <div>
+                                <div id="DivSalesPersonPerform" class="col-lg-4 col-md-12">
+                                    @* <div class="tile-header">*@
+                                    <div style="width: 100%; text-align: center;">
+                                        <h5>
+                                            <strong>TOP 10 SALES PERSON PERFORMANCE (Amt)</strong></h5>
+                                    </div>
+                                    @*  </div><a href="../Home/SalesPersonPerformance" onclick="DIVSALESPERSON();"
+                                        style="text-decoration: none;">*@ 
+                                        <!-- tile -->
+                                        <section class="tile">
+                                        
+                                          
+                                            <div id="Salescontainer">
+                                            </div>@* style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"*@
+                                        
+                                    </section>
+                                    @*</a>*@
+                                </div>
+                            
+                            <div >
+                                <div id="DivCounterSales" class="col-lg-4 col-md-12">
+                                    @* <div class="tile-header">*@
+                                    <div style="width: 100%; text-align: center;">
+                                        <h5>
+                                            <strong>TOP 10 COUNTERWISE SALES (Amt)</strong></h5>
+                                    </div>
+                                    @*  </div> <a href="../Home/Top10Counterwisesales" onclick="DIVSALESPERSON();"
+                                        style="text-decoration: none;">*@
+                                        <!-- tile -->
+                                        <section class="tile">
+                                            <div id="SalesCountercontainer">
+                                            </div>@* style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"*@
+                                        </section>
+                                    @*</a>*@
+                                </div>
+                            </div>
+                            <!-- /tile -->
+                        </div>
+                        <!-- col 12 -->
+                        <!-- col 12 -->
+                        <div class="col-md-12">
+                            <div id ="DIVfloormetalsales" class="col-md-7  col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5>
+                                        <strong>FLOOR WISE METAL SALES</strong></h5>
+                                </div>
+                                <!-- tile body -->
+                                <section class="tile">
+                                <div class="tile-body">
+                                    <table id="stack-chart" class="flot-chart11" data-type="bars" data-stack="true" data-tool-tip="show"
+                                        data-width="100%" data-height="250px" data-font-color="#717171" data-legend="hidden"
+                                        data-y-max="3500">                                       
+                                    </table>
+                                </div>
+                            </section>
+                            </div>
+                            <!-- tile -->
+                            <div id="DIVstockavail">
+                                <div class="col-lg-5 col-md-12">
+                                    <!-- tile header -->
+                                    @*<div class="tile-header">*@
+                                    <div style="width: 100%; text-align: center;">
+                                        <h5>
+                                            <strong>STOCK AVAILABILITY STATUS (wt)</strong>
+                                        </h5>
+                                    </div>
+                                    @* <div class="controls">
+                                        <a href="#" class="refresh"><i class="fa fa-refresh"></i></a><a href="#" class="remove">
+                                            <i class="fa fa-times"></i></a>
+                                    </div>
+                                    </div>*@
+                                    <!-- /tile header -->
+                                    <section class="tile">
+                                        <!-- tile body -->
+                                        <div class="tile-body">
+                                                <table id="stack-chart3" class="flot-chart13" data-type="bars" data-stack="true"
+                                                    data-tool-tip="show" data-width="100%" data-height="250px" data-font-color="#717171"
+                                                    data-legend="hidden" data-y-max="3500">
+                                                </table>
+                                            </div>
+                                        <!-- /tile body -->
+                                        </section>
+                                </div>
+                            </div>
+                            <!-- /tile -->
+                        </div>
+                        <!-- col 12 -->
+                        <!-- col 12 -->
+                        <div class="col-md-12">
+                            <div id="DivFloorwiseChit">@*class="col-md-3 text-center"*@
+                                <div class="col-lg-6 col-md-12">
+                                    <div style="width: 100%; text-align: center;">
+                                        <h5>
+                                            CHIT REPORT</h5>
+                                    </div>
+                                    @*<span id="sparkline03"></span>*@
+                                    <!-- /tile header -->
+                                    <!-- tile -->
+                                    <section class="tile">
+                                              <!-- tile body -->
+                                            @* <div class="tile-body">
+                                                <table id="stack-chart1" class="flot-chart12" data-type="bars" data-stack="true" data-tool-tip="show"
+                                                    data-width="100%" data-height="250px" data-font-color="#717171" data-legend="hidden"
+                                                    data-y-max="3500">
+                                                </table>
+                                            </div>*@
+                                            <div class="tile-body">
+ <div id="DIVDashboardChit" style="height: 250px;">
+ </div>
+ </div>
+                                            <!-- /tile body -->
+                                             </section>
+                                    @* <div class="tile-body">
+                                            <table style="width:100%;"><tr><td>
+                                            <table id="pie-chart" class="flot-chart" data-type="pie" data-inner-radius="0.4"
+                                                data-pie-label="show" data-width="100%" data-height="250px" data-tool-tip="false">
+                                            </table></td></tr><tr><td><table border="0" style="width:100%;"><tr><td align="center">
+                                            <table><tr><td><span class="anto" style="background-color:#61584D;"><label id="lblchittotel">
+                                                            </label></span><span style="padding-left:5px; color:#61584D;">TOTAL</span></td><td><span class="anto" style="background-color:#22BEEF;"><label id="lblchitnew">
+                                                            </label></span><span style="padding-left:5px; color:#22BEEF;">NEW</span></td></tr></table></td></tr><tr><td align="center"><table><tr><td><span class="anto" style="background-color:#FFC100;"><label id="lblchitmatured">
+                                                            </label></span><span style="padding-left:5px; color:#FFC100;">MATURED</span></td><td><span class="anto" style="background-color:#FF4A43;"><label id="lblchitdiscontinued">
+                                                            </label></span><span style="padding-left:5px; color:#FF4A43;">DISCONTINUED</span></td></tr></table></td></tr></table>
+                                            </td></tr></table>
+                                            </div>*@
+                                </div>
+                            </div>
+                            <!-- /tile -->
+                            <!-- tile -->
+                            <div id="DivOrderSummary">
+                                <div class="col-lg-6 col-md-12">
+                                    <!-- tile header -->
+                                    @*<div class="tile-header">*@
+                                    <section class="tile">
+                                    <div style="width: 100%; text-align: center;"><h5>
+                                        <strong>ORDER SUMMARY (COUNT)</strong></h5></div>
+                                    @* </div>*@
+                                    <!-- /tile header -->
+                                    <div class="tile-body">
+                                        <div id="ordersummaryDiv" style="height: 250px; margin: 0 auto">
+                                        </div> 
+                                         <table width="100%" style="text-align:center;"><tr><td align="center">
+                                            <table>
+                                            <tr><td><img src="../../NACImages/Delivered.jpg" /> <strong>DELIVERED</strong></td>
+                                            <td style="padding-left:10px;"><img src="../../NACImages/Pending.jpg" /> <strong>PENDING</strong></td>
+                                            <td style="padding-left:10px;"><img src="../../NACImages/Overdue.jpg" /> <strong>OVER DUE</strong></td></tr>
+                                            </table></td></tr></table>                                       
+                                    </div>
+                                    </section>
+                                    <!-- tile body -->
+                                </div>
+                                <!-- /tile -->
+                            </div>
+                        </div>
+                        <!-- col 12 -->
+                        <!-- col 12 -->
+                        <div class="col-md-12">
+                            <!-- tile -->
+                            <div id="DIVEstimation">
+                                <div class="col-lg-4 col-md-12">
+                                    <!-- tile header -->
+                                    @*  <div class="tile-header">*@
+                                    <div style="width: 100%; text-align: center;">
+                                        <h5>
+                                            <strong>ESTIMATION TO CONVERSION (ITEMS)</strong></h5>
+                                    </div>
+                                    @*<div class="controls">
+                                            <a href="#" class="refresh"><i class="fa fa-refresh"></i></a><a href="#" class="remove">
+                                                <i class="fa fa-times"></i></a>
+                                        </div>
+                                    </div>*@
+                                    <!-- /tile header -->
+                                    <section class="tile">
+                                        <div class="tile-body">
+                                            <div id="gauge02" class="inline-block" style="width: 100%; height: 220px;" data-tool-tip="show">
+                                            </div>
+                                            <div id="AntoTest" style="width: 100%;">
+                                            <table width="100%" border="0">
+                                            <tr><td colspan="2" align="center">
+                                            <label id="lblTotalSaleCnt" style="color:#22BEEF;">
+                                                        </label>
+                                            </td></tr>
+                                                <tr>
+                                                    
+                                                    <td style="width: 50%">
+                                                        <label id="lblSaleCnt">
+                                                        </label>
+                                                    </td>
+                                                    <td align="right">
+                                                        <label id="lblNoSaleCnt">
+                                                        </label>
+                                                    </td>
+                                                    </tr>
+                                                    <tr><td colspan="2" align="center">
+                                            <label id="lblTotalSaleAmt" style="color:#22BEEF;">
+                                                        </label>
+                                            </td></tr>
+                                                    <tr>
+                                                    
+                                                    <td style="width: 50%">
+                                                        <label id="lblSaleAmt">
+                                                        </label>
+                                                    </td>
+                                                    <td align="right">
+                                                        <label id="lblNoSaleAmt">
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        </div>
+                                        </section>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <!-- tile header -->
+                                <div id="DIVSpecialApproval">
+                                    <div class="tile-header">
+                                        <div style="width: 100%; text-align: center;">
+                                            <h5>
+                                                <strong>SPECIAL APPROVALS</strong></h5>
+                                        </div>
+                                        <!-- tile -->
+                                    </div>
+                                    <!-- /tile header -->
+                                    <section class="tile">
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color orange">
+                                            <div class="tile-body color red">
+                                                <table width="100%" style="text-align: center;">
+                                                    <tr>
+                                                        <td>
+                                                            <strong>CUSTOMER COUNT</strong>
+                                                        </td>
+                                                        <td>
+                                                            -
+                                                        </td>
+                                                        <td>
+                                                            <label id="lblcustomercount">
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>APPROVAL COUNT</strong>
+                                                        </td>
+                                                        <td>
+                                                            -
+                                                        </td>
+                                                        <td>
+                                                            <label id="lblcustomertotalcount">
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>
+                                                            <strong>TOTAL AMOUNT</strong>
+                                                        </td>
+                                                        <td>
+                                                            -
+                                                        </td>
+                                                        <td>
+                                                            <label id="lblcustomertotalAmt">
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                    </section>
+                                </div>
+                                <br />
+                                <!-- tile header -->
+                                <div id="DIVSalesReturn">
+                                    <div class="tile-header">
+                                        <div style="width: 100%; text-align: center;">
+                                            <h5>
+                                                <strong>SALES RETURN</strong></h5>
+                                        </div>
+                                        <!-- tile -->
+                                    </div>
+                                    <!-- /tile header -->
+                                    <section class="tile">
+                                        <!-- tile header -->
+                                        @*<div class="tile-header">
+                   
+                    <div class="controls">
+                      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
+                      <a href="#" class="remove"><i class="fa fa-times"></i></a>
+                    </div>
+                  </div>*@
+                                        <!-- /tile header -->
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color green">
+                                            <div class="tile-body color red">
+                                                <table width="100%" style="text-align: center;">
+                                                    <tr>
+                                                        <td>
+                                                            <strong>TOTAL COUNT</strong>
+                                                        </td>
+                                                        <td>
+                                                            -
+                                                        </td>
+                                                        <td>
+                                                            <label id="lbltotalcountSR">
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>TOTAL AMOUNT</strong>
+                                                        </td>
+                                                        <td>
+                                                            -
+                                                        </td>
+                                                        <td>
+                                                            <label id="lbltotalamount">
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                    </section>
+                                </div>
+                                <!-- /tile -->
+                            </div>
+                            @* Working Fine*@
+                            <!-- col 4 -->
+                            <div class="col-lg-4 col-md-12">
+                                <!-- tile -->
+                                <section class="tile">
+                           @* <!-- col 4 -->
+                                <div class="col-md-4">*@
+                                    <!-- tile header -->
+                                    @*<div class="tile-header">*@
+                                    <div style="width: 100%; text-align: center;"><h5>
+                                        <strong>STORE WALKOUTS</strong></h5></div>
+                                    @*<div class="controls">
+                                            <a href="#" class="refresh"><i class="fa fa-refresh"></i></a><a href="#" class="remove">
+                                                <i class="fa fa-times"></i></a>
+                                        </div>
+                                    </div>*@
+                                    <!-- /tile header -->
+                                   @* <div class="tile-body">
+                                        <div id="gauge01" class="inline-block" style="width: 100%; height: 150px;">
+                                        </div>
+                                    </div>*@
+                                      <div class="tile-body color red">
+                                                <table width="100%" style="text-align: center;">
+                                                    <tr>
+                                                        <td>
+                                                            <h1><strong>AWAITING DATA</strong></h1>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                @*</div>
+                                <!-- /col 4 -->*@
+                            </section>
+                                <!-- /tile -->
+                                <!-- Silver -->
+                            </div>
+                            <!-- /col 4 -->
+                        </div>
+                        <!-- /col 12 -->
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /content container -->
+            </div>
+            <!-- Page content end -->
+        </div>
+        <!-- Make page fluid-->
+    </div>
+    <!-- Wrap all page content end -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="../NACContent/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/blockui/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/jquery.animateNumbers.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/flot/jquery.flot.categories.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/flot/jquery.flot.pie.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/flot/jquery.flot.stack.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/graphtable/jquery.graphTable-0.3.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/rickshaw/raphael-min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/rickshaw/d3.v2.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/rickshaw/rickshaw.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/jquery.sparkline.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/morris/morrisanto.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/jquery.easypiechart.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/justgage/justgage.js"></script>
+    <script type="text/javascript" src="../NACContent/js/minoral.min.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript">
+
+
+        $(function () {
+            //Passing Usertype to redirecting page start//
+            var usertyp = '';
+            var queryString = new Array();
+            var branch = '';
+            var queryStr = new Array();
+
+            if (queryStr.length == 0) {
+                if (window.location.search.split('?').length > 1) {
+                    var params = window.location.search.split('?')[1].split('&');
+                    for (var i = 0; i < params.length; i++) {
+                        var key = params[i].split('=')[0];
+                        var valuess = decodeURIComponent(params[i].split('=')[1]);
+                        queryStr[key] = valuess;
+                    }
+                }
+            }
+
+            if (queryStr["Branch"] != null) {
+                branch = queryStr["Branch"].toString();
+                console.log('branch :' + branch);
+            }
+
+            if (queryString.length == 0) {
+                if (window.location.search.split('?').length > 1) {
+                    var params = window.location.search.split('?')[1].split('&');
+                    for (var i = 0; i < params.length; i++) {
+                        var key = params[i].split('=')[0];
+                        var valuess = decodeURIComponent(params[i].split('=')[1]);
+                        queryString[key] = valuess;
+                    }
+                }
+            }
+
+            //            if (queryString["USERTYPE"] != null) {
+            //                usertyp = queryString["USERTYPE"].toString();
+            //                if (usertyp == 6 && branch == "TNagar") {
+            //                    window.location = ("/Home/DashboardTN");
+            //                }
+            //                else if (usertyp == 7 && branch == "TNagar") {
+            //                    window.location = ("/Home/DashboardManagementTN");
+            //                }
+            //                else if (usertyp == 8 && branch == "TNagar") {
+            //                    window.location = ("/Home/DashboardMarketingTN");
+            //                }
+            //                else if (usertyp == 9 && branch == "TNagar") {
+            //                    window.location = ("/Home/FinanceDashboardTN");
+            //                }
+            //                else if (usertyp == 6 && branch == "Mylapore") {
+            //                    window.location = ("/Home/Dashboard");
+            //                }
+            //                else if (usertyp == 7 && branch == "Mylapore") {
+            //                    window.location = ("/Home/DashboardManagement");
+            //                }
+            //                else if (usertyp == 8 && branch == "Mylapore") {
+            //                    window.location = ("/Home/DashboardMarketing");
+            //                }
+            //                else if (usertyp == 9 && branch == "Mylapore") {
+            //                    window.location = ("/Home/FinanceDashboard");
+            //                }
+            //            }
+            //Passing Usertype to redirecting page End//
+
+            //To set Current Date -Start
+
+            var d = new Date();
+
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+
+            var output = (('' + day).length < 2 ? '0' : '') + day + '-' +
+                         (('' + month).length < 2 ? '0' : '') + month + '-' +
+                         d.getFullYear();
+
+            $('#lblcurrentdate').html(output);
+
+            //To set Current Date - End
+
+            // Function to add comma in between the amount - Start
+
+            function AmountWithComma(amt) {
+                var x = amt;
+                x = x.toString();
+                var afterPoint = '';
+                if (x.indexOf('.') > 0)
+                    afterPoint = x.substring(x.indexOf('.'), x.length);
+                x = Math.floor(x);
+                x = x.toString();
+                var lastThree = x.substring(x.length - 3);
+                var otherNumbers = x.substring(0, x.length - 3);
+                if (otherNumbers != '')
+                    lastThree = ',' + lastThree;
+                var AmountSepWithComma = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                return AmountSepWithComma;
+            }
+
+            // Function to add comma in between the amount - End
+
+            //Variable for branch
+            var Branch = "Mylapore";
+
+            //To get the Name of the Logged in Person - Start
+
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "GetUserName",
+                 dataType: "text",
+                 success: function (dataaaa) {
+                     console.log('USERNAME : ' + dataaaa);
+                     $('#lblLoggedInby').html(dataaaa);
+                 }
+             });
+
+            //To get the Name of the Logged in Person - End
+
+            //To get the User Type  - Start
+            var UserType = "";
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "GetUserType",
+                 dataType: "text",
+                 success: function (dataaaa) {
+                     console.log('USERTYPE : ' + dataaaa);
+                     UserType = dataaaa;
+                 }
+             });
+
+            //To get the User Type - End
+
+            var bars = false;
+            var lines = true;
+            var pie = false;
+
+
+            // High chart for top 10 sale start
+            var ToolTipTop10Sales = [];
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "ComparisonTop10Sales?MetalID=" + metal + "&FromDate=" + fromdate + "&ToDate=" + todate + "&Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     //console.log('aaDataMLchart : ' + dataaaa.aaDataMLchart);
+                     for (var i = 0; i < dataaaa.aaDataMLchart.length; i++) {
+                         var getarraySales = [];
+                         getarraySales.push(dataaaa.aaDataMLchart[i][0]);
+                         getarraySales.push(dataaaa.aaDataMLchart[i][1]);
+                         getarraySales.push(AmountWithComma((dataaaa.aaDataMLchart[i][1]).toFixed(3)));
+                         ToolTipTop10Sales.push(getarraySales);
+                     }
+                     Highcharts.setOptions({
+                         colors: ['#95CEFF', '#5C5C61', '#A9FF96', '#FFBC75', '#999EFF', '#FF7599', '#FDEC6D', '#A65F6C', '#AAFFFA', '#CD97EB', '#D6D2CC']
+                     });
+                     piechartML = new Highcharts.Chart
+                   ({
+                       chart: {
+                           renderTo: 'container',
+                           plotBackgroundColor: null,
+                           plotBorderWidth: null,
+                           plotShadow: false
+                       },
+                       credits: { enabled: false },
+
+                       exporting: { enabled: false },
+                       title: {
+                           text: ''
+                       },
+//                       tooltip: {
+//                           pointFormat: '{series.name}: <b>{point.y} (wt.)</b>',
+//                           percentageDecimals: 1
+                       //                       },
+                       tooltip: {
+                           formatter: function () {
+                               var MetalName = '';
+                               var MetalAmount = '';
+                               for (a = 0; a < ToolTipTop10Sales.length; a++) {
+                                   if (this.y == ToolTipTop10Sales[a][1]) {
+                                       MetalName = ToolTipTop10Sales[a][0];
+                                       MetalAmount = ToolTipTop10Sales[a][2];
+                                   }
+                               }
+                               return MetalName + '<br>' + this.series.name + ': <b>' + MetalAmount + ' (wt.) </b>';
+                           }
+                       },
+                       plotOptions: {
+                           pie: {
+                               allowPointSelect: true,
+                               cursor: 'pointer',
+                               dataLabels: {
+                                   enabled: true
+                               },
+                               showInLegend: false
+                           }
+                       },
+                       series: [{
+                           type: 'pie',
+                           name: "Net Weight",
+                           data: dataaaa.aaDataMLchart
+                       }]
+                   });
+                 }
+             });
+
+            $('#divTopTenStoreWiseSales').click(function () {
+                //To get the usertype of the Logged in Person - Start
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/StoreWiseSales?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End 
+
+                window.location = ("/Home/StoreWiseSales?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+            });
+
+
+            // High chart for top 10 sale end
+
+            //Order summary Doughnut chart start//
+            $.ajax
+                    ({
+                        type: "POST",
+                        url: "Orderdetails?Branch=" + Branch,
+                        dataType: "json",
+                        success: function (data) {
+
+                            var colors = ['#16A165', '#FFAB00', '#DF0101'],
+                                 categories = ['DELIVERED', 'PENDING', 'OVERDUE'],
+                                 data = [{
+                                     y: data.aaDataOrdersummaryTB0[0][1],
+                                     color: colors[0],
+                                     drilldown: {
+                                         name: 'DELIVERED',
+                                         categories: ['DELIVERED ON TIME', 'DELAYED'],
+                                         data: [data.aaDataOrdersummaryTB1[0][1], data.aaDataOrdersummaryTB1[1][1]],
+                                         color: colors[0]
+                                     }
+                                 }, {
+                                     y: data.aaDataOrdersummaryTB0[1][1],
+                                     color: colors[1],
+                                     drilldown: {
+                                         name: 'PENDING',
+                                         categories: ['PENDING WITH US', 'ISSUE TO SMITH', 'READY TO DELIVER'],
+                                         data: [data.aaDataOrdersummaryTB2[0][1], data.aaDataOrdersummaryTB2[1][1], data.aaDataOrdersummaryTB2[2][1]],
+                                         color: colors[1]
+                                     }
+                                 }, {
+                                     y: data.aaDataOrdersummaryTB0[2][1],
+                                     color: colors[2],
+                                     drilldown: {
+                                         name: 'OVER DUE',
+                                         categories: ['OVER DUE WITH US', 'ISSUE TO SMITH', 'READY TO DELIVER'],
+                                         data: [data.aaDataOrdersummaryTB3[0][1], data.aaDataOrdersummaryTB3[1][1], data.aaDataOrdersummaryTB3[2][1]],
+                                         color: colors[2]
+                                     }
+                                 }],
+                                 browserData = [],
+                                 versionsData = [],
+                                 i,
+                                 j,
+                                 dataLen = data.length,
+                                 drillDataLen,
+                                 brightness;
+
+
+                            // Build the data arrays
+                            for (i = 0; i < dataLen; i += 1) {
+
+                                // add browser data
+                                browserData.push({
+                                    name: categories[i],
+                                    y: data[i].y,
+                                    color: data[i].color
+                                });
+
+                                // add version data
+                                drillDataLen = data[i].drilldown.data.length;
+                                for (j = 0; j < drillDataLen; j += 1) {
+                                    brightness = 0.2 - (j / drillDataLen) / 5;
+                                    versionsData.push({
+                                        name: data[i].drilldown.categories[j],
+                                        y: data[i].drilldown.data[j],
+                                        color: Highcharts.Color(data[i].color).brighten(brightness).get()
+                                    });
+                                }
+                            }
+
+                            // Create the chart
+                            $('#ordersummaryDiv').highcharts({
+                                chart: {
+                                    type: 'pie'
+                                },
+                                title: {
+                                    text: ''
+                                },
+                                credits: { enabled: false },
+                                exporting: { enabled: false },
+                                yAxis: {
+                                    title: {
+                                        text: 'Total percent market share'
+                                    }
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        shadow: false,
+                                        center: ['50%', '50%']
+                                    }
+                                },
+                                tooltip: {
+                                    valueSuffix: ''
+                                },
+                                series: [{
+                                    name: 'Overall Count',
+                                    data: browserData,
+                                    size: '60%',
+                                    dataLabels: {
+                                        formatter: function () {
+                                            return this.y > 5 ? this.point.name : null;
+                                        },
+                                        color: 'white',
+                                        distance: -30
+                                    }
+                                }, {
+                                    name: 'Count',
+                                    data: versionsData,
+                                    size: '80%',
+                                    innerSize: '60%',
+                                    dataLabels: {
+                                        formatter: function () {
+                                            // display only if larger than 1
+                                            return this.y > 1 ? '<b>' + this.point.name + ':</b> ' + this.y : null;
+                                        }
+                                    }
+                                }]
+                            });
+
+
+                        }
+                    });
+            //Order summary Doughnut chart end//
+
+                    // High chart for sales person performance start
+                    var ToolTipTop10SPP = [];
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "SalesPerformance?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     //console.log('SalesPerformance : ' + dataaaa.aaDataSalesPerformanceTop10);
+                     for (var i = 0; i < dataaaa.aaDataSalesPerformanceTop10.length; i++) {
+                         var getarraySSP = [];
+                         getarraySSP.push(dataaaa.aaDataSalesPerformanceTop10[i][0]);
+                         getarraySSP.push(dataaaa.aaDataSalesPerformanceTop10[i][1]);
+                         getarraySSP.push(AmountWithComma((dataaaa.aaDataSalesPerformanceTop10[i][1]).toFixed(2)));
+                         ToolTipTop10SPP.push(getarraySSP);
+                     }
+                     Highcharts.setOptions({
+                         colors: ['#95CEFF', '#5C5C61', '#A9FF96', '#FFBC75', '#999EFF', '#FF7599', '#FDEC6D', '#A65F6C', '#AAFFFA', '#CD97EB', '#D6D2CC']
+                     });
+                     piechartML = new Highcharts.Chart
+                   ({
+                       chart: {
+                           renderTo: 'Salescontainer',
+                           plotBackgroundColor: null,
+                           plotBorderWidth: null,
+                           plotShadow: false
+                       },
+                       credits: { enabled: false },
+
+                       exporting: { enabled: false },
+                       title: {
+                           text: ''
+                       },
+//                       tooltip: {
+//                           pointFormat: '{series.name}: <b>{point.y} Rs.</b>',
+//                           percentageDecimals: 1
+                       //                       },
+                       tooltip: {
+                           formatter: function () {
+                               var SalesPersonName = '';
+                               var SalesPersonAmount = '';
+                               for (a = 0; a < ToolTipTop10SPP.length; a++) {
+                                   if (this.y == ToolTipTop10SPP[a][1]) {
+                                       SalesPersonName = ToolTipTop10SPP[a][0];
+                                       SalesPersonAmount = ToolTipTop10SPP[a][2];
+                                   }
+                               }
+                               return SalesPersonName + '<br>' + this.series.name + ': <b>' + SalesPersonAmount + ' Rs. </b>';
+                           }
+                       },
+                       plotOptions: {
+                           pie: {
+                               allowPointSelect: true,
+                               cursor: 'pointer',
+                               dataLabels: {
+                                   enabled: true
+                               },
+                               showInLegend: false
+                           }
+                       },
+                       series: [{
+                           type: 'pie',
+                           name: "Amount",
+                           data: dataaaa.aaDataSalesPerformanceTop10
+                       }]
+                   });
+                 }
+             });
+            // High chart for sales person performance end
+            //Floorwisechit report highcharts start//
+            $.ajax
+                    ({
+                        type: "POST",
+                        url: "Dashboardchit?Branch=" + Branch,
+                        dataType: "json",
+                        success: function (data) {
+                            console.log();
+                            chartGW = new Highcharts.Chart({
+                                chart: {
+                                    renderTo: 'DIVDashboardChit',
+                                    zoomType: 'xy'
+                                },
+                                credits: { enabled: false },
+                                title: {
+                                    text: ''
+                                },
+                                exporting: {
+                                    buttons: {
+                                        printButton: {
+                                            enabled: false
+                                        },
+                                        exportButton: {
+                                            enabled: false
+                                        }
+                                    }
+                                },
+                                exporting: { enabled: false },
+                                xAxis: [{
+                                    categories: data.aaDatachtdata,
+                                    labels: {
+                                        rotation: -45,
+                                        align: 'right',
+                                        style: {
+                                            fontSize: '10px',
+                                            fontWeight: 'bold',
+                                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black',
+                                            fontFamily: 'Verdana, sans-serif'
+                                        }
+                                    }
+                                }],
+                                yAxis:
+                                [{ // Secondary yAxis
+                                    title: {
+                                        text: 'CHIT COUNT',
+                                        style: {
+                                            fontSize: '15px',
+                                            fontWeight: 'bold',
+                                            fontFamily: 'Verdana, sans-serif',
+                                            color: (Highcharts.theme && Highcharts.theme.textColor) || '#89A54E'
+                                        }
+                                    },
+                                    labels: {
+                                        formatter: function () {
+                                            return this.value;
+                                        },
+                                        style: {
+                                            fontSize: '10px',
+                                            fontWeight: 'bold',
+                                            color: (Highcharts.theme && Highcharts.theme.textColor) || '#89A54E',
+                                            fontFamily: 'Verdana, sans-serif'
+                                        }
+                                    },
+                                    opposite: true
+                                },
+                                { // Primary yAxis
+                                    labels: {
+                                        formatter: function () {
+                                            return this.value + ' Rs.';
+                                        },
+                                        style: {
+                                            fontSize: '10px',
+                                            fontWeight: 'bold',
+                                            color: (Highcharts.theme && Highcharts.theme.textColor) || '#4572A7',
+                                            fontFamily: 'Verdana, sans-serif'
+                                        }
+                                    },
+                                    title: {
+                                        text: 'CHIT AMT',
+                                        style: {
+                                            fontSize: '15px',
+                                            fontWeight: 'bold',
+                                            fontFamily: 'Verdana, sans-serif',
+                                            color: (Highcharts.theme && Highcharts.theme.textColor) || '#4572A7'
+                                        }
+                                    },
+                                    legend:
+                                    {
+                                        itemStyle:
+                                        {
+                                            color: 'black',
+                                            fontWeight: 'bold',
+                                            fontSize: '13px'
+                                        },
+                                        backgroundColor: '#FFFFFF',
+                                        reversed: true
+                                    }
+                                }],
+                                tooltip:
+                                         {
+                                             formatter: function () {
+                                                 name = this.x;
+
+                                                 if (this.series.name == 'CHIT AMOUNT') {
+                                                     varGrams = ' Rs.';
+                                                     return 'AMOUNT, ' + this.x + ': ' + Highcharts.numberFormat(this.y, 0) + varGrams;
+                                                 }
+
+                                                 else {
+                                                     varGrams = ' COUNT';
+                                                     return 'COUNT, ' + this.x + ': ' + Highcharts.numberFormat(this.y, 0) + varGrams;
+                                                 }
+                                                 // return '' + this.x + ': ' + Highcharts.numberFormat(this.y, 0) + varGrams;
+                                             }
+                                         },
+                                legend:
+                                {
+                                    itemStyle:
+                                    {
+                                        color: 'black',
+                                        fontWeight: 'bold',
+                                        fontSize: '13px'
+                                    },
+                                    backgroundColor: '#FFFFFF',
+                                    reversed: true
+                                },
+
+                                dataLabels:
+                                        {
+                                            formatter: function () {
+                                                return Highcharts.numberFormat(this.y, 0);
+                                            },
+                                            enabled: true,
+                                            color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'White'
+                                        },
+                                series:
+ [{
+     name: 'CHIT AMOUNT',
+     color: '#14F685',
+     type: 'column',
+     yAxis: 1,
+     data: [{
+         name: 'EXISTING',
+         y: data.aadatachtamt[0],
+         color: '#0000FF'
+     }, {
+         name: 'NEW',
+         y: data.aadatachtamt[1],
+         color: '#00FF00'
+     },
+ {
+     name: 'MATURED',
+     y: data.aadatachtamt[2],
+     color: '#FF6600'
+ }, {
+     name: 'DISCONTINUED',
+     y: data.aadatachtamt[3],
+     color: '#F71625'
+ },
+ {
+     name: 'REJOIN',
+     y: data.aadatachtamt[4],
+     color: '#a2d200'
+ }
+ ]
+ },
+ {
+     name: 'CHIT COUNT',
+     color: '#800080',
+     type: 'spline',
+     data: data.aadatachtcnt
+ }]
+                            });
+                        }
+                    });
+
+            //Floorwisechit report highcharts end//
+
+            //For Redirecting to  Dashboard Table - Start
+            $('#btnTable').click(function () {
+                window.location = ("/Home/DashboardTable");
+
+            });
+            //For Redirecting to  Dashboard Table - End    
+
+            //For Redirecting to  Dashboard Table T Nagar - Start
+            //            $('#btnBranch').click(function () {
+            //                window.location = ("/Home/DashboardTN");
+
+            //            });
+            //For Redirecting to  Dashboard Table T Nagar - End    
+
+            // High chart for top 10 counter start
+            var ToolTipTop10Counter = [];
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "Top10CounterSales?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     //console.log('aaDataTop10CounterSales : ' + dataaaa.aaDataTop10CounterSales);
+                     for (var i = 0; i < dataaaa.aaDataTop10CounterSales.length; i++) {
+                         var getarray = [];
+                         getarray.push(dataaaa.aaDataTop10CounterSales[i][0]);
+                         getarray.push(dataaaa.aaDataTop10CounterSales[i][1]);
+                         getarray.push(AmountWithComma((dataaaa.aaDataTop10CounterSales[i][1]).toFixed(2)));
+                         ToolTipTop10Counter.push(getarray);
+                     }
+                     Highcharts.setOptions({
+                         colors: ['#95CEFF', '#5C5C61', '#A9FF96', '#FFBC75', '#999EFF', '#FF7599', '#FDEC6D', '#A65F6C', '#AAFFFA', '#CD97EB', '#D6D2CC']
+                     });
+
+                     piechartML = new Highcharts.Chart
+                   ({
+                       chart: {
+                           renderTo: 'SalesCountercontainer',
+                           plotBackgroundColor: null,
+                           plotBorderWidth: null,
+                           plotShadow: false
+                       },
+                       credits: { enabled: false },
+
+                       exporting: { enabled: false },
+                       title: {
+                           text: ''
+                       },
+//                       tooltip: {
+//                           pointFormat: '{series.name}: <b>{point.y} Rs.</b>',
+//                           percentageDecimals: 1
+                       //                       },
+                       tooltip: {
+                           formatter: function () {
+                               var CounterName = '';
+                               var CounterAmount = '';
+                               for (a = 0; a < ToolTipTop10Counter.length; a++) {
+                                   if (this.y == ToolTipTop10Counter[a][1]) {
+                                       CounterName = ToolTipTop10Counter[a][0];
+                                       CounterAmount = ToolTipTop10Counter[a][2];
+                                   }
+                               }
+                               return CounterName + '<br>' + this.series.name + ': <b>' + CounterAmount + ' Rs. </b>';
+                           }
+                       },
+                       plotOptions: {
+                           pie: {
+                               allowPointSelect: true,
+                               cursor: 'pointer',
+                               dataLabels: {
+                                   enabled: true
+                               },
+                               showInLegend: false
+                           }
+                       },
+                       series: [{
+                           type: 'pie',
+                           name: "Amount",
+                           data: dataaaa.aaDataTop10CounterSales
+                       }]
+                   });
+                 }
+             });
+
+
+            // High chart for top 10 sale counter end      
+
+
+            var initializeFlot = function () {
+                //Stock availabilty chart start//            
+                $.ajax
+            ({
+                type: "POST",
+                url: "StockAvailabilty?Branch=" + Branch,
+                dataType: "json",
+                async: false,
+                success: function (dataa) {
+                    var s = dataa.aaDataStockAvailable[0][2];
+                    var stockstart = "<thead>";
+                    var tablestockcont = "<tr><th></th><th style='color: #61584D;'> Net Weight </th> ";
+                    var stockclose = "</tr></thead>";
+                    var stockBdstart = "<tbody>"; //<tr><th></th>
+                    var stockdata = "";
+                    var stockdt = "";
+                    var stockend = "</tr></tbody>";
+
+
+                    for (var i = 0; i < dataa.aaDataStockAvailable.length; i++) {
+                        stockdata = "<tr><th>" + dataa.aaDataStockAvailable[i][1] + "</th><td>" + dataa.aaDataStockAvailable[i][2] + "</td></tr>";
+                        stockdt = stockdt + stockdata;
+                    }
+                    var StockContent = stockstart + tablestockcont + stockclose + stockBdstart + stockdt + stockend;
+
+                    var el13 = $('table.flot-chart13');
+
+                    el13[0].innerHTML = StockContent;
+
+                    function getTooltip(label, x, y) {
+                        if (x.indexOf("DIA") >= 0) {
+                            return "<strong>Net Weight </strong> : " + AmountWithComma(y) + "(ct)";
+                        }
+                        else {
+                            return "<strong>Net Weight </strong> : " + AmountWithComma(y) + "(wt)";
+                        }
+                    }
+
+                    el13.each(function () {
+                        var data = $(this).data();
+                        var colors = ["#16a085", "#ff4a43", "#a2d200", "#22beef", "#16a085"];
+                        var gridColor = data.tickColor || 'rgba(0,0,0,.1)';
+
+                        $(this).find('thead th:not(:first)').each(function () {
+                            colors.push($(this).css('color'));
+                        });
+
+                        if (data.type) {
+                            bars = data.type.indexOf('bars') != -1;
+                            lines = data.type.indexOf('lines') != -1;
+                            pie = data.type.indexOf('pie') != -1;
+                        }
+
+                        $(this).graphTable({
+                            series: 'columns',
+                            position: 'replace',
+                            colors: colors,
+                            width: data.width,
+                            height: data.height
+                        },
+                        {
+                            series: {
+                                stack: data.stack,
+                                pie: {
+                                    show: pie,
+                                    innerRadius: data.innerRadius || 0,
+                                    label: {
+                                        show: data.pieLabel == 'show' ? true : false
+                                    }
+                                },
+                                bars: {
+                                    show: bars,
+                                    barWidth: data.barWidth || 0.5,
+                                    fill: data.fill || 1,
+                                    align: 'center'
+                                },
+                                lines: {
+                                    show: lines,
+                                    fill: 0.1,
+                                    lineWidth: 3
+                                },
+                                shadowSize: 0,
+                                points: {
+                                    radius: 4
+                                }
+                            },
+                            xaxis: {
+                                mode: 'categories',
+                                tickLength: 0,
+                                font: {
+                                    lineHeight: 24,
+                                    weight: '300',
+                                    color: data.fontColor,
+                                    size: 14
+                                }
+                            },
+                            yaxis: {
+                                tickColor: gridColor,
+                                // tickFormatter: function number(x) { var num; if (x >= 1000) { num = (x / 1000) + 'k'; } else { num = x; } return num; },
+                                max: s,
+                                font: {
+                                    lineHeight: 13,
+                                    weight: '300',
+                                    color: data.fontColor
+                                }
+                            },
+                            grid: {
+                                borderWidth: {
+                                    top: 0,
+                                    right: 0,
+                                    bottom: 1,
+                                    left: 1
+                                },
+                                borderColor: gridColor,
+                                margin: 13,
+                                minBorderMargin: 0,
+                                labelMargin: 20,
+                                hoverable: true,
+                                clickable: true,
+                                mouseActiveRadius: 6
+                            },
+                            legend: { show: data.legend == 'show' ? true : false },
+                            tooltip: data.toolTip == 'show' ? true : false,
+                            tooltipOpts: { content: getTooltip }
+                        });
+                    });
+                }
+            });
+
+                //End//
+            //Floorwise metal sales starts // 
+                var TooltipTotal = [];
+                $.ajax
+            ({
+                type: "POST",
+                url: "DashdoardFloorwiseMetalSales?Branch=" + Branch,
+                dataType: "json",
+                async: false,
+                success: function (dataa) {
+                    console.log('FWMS :' + dataa.aaDataFloorwiseMetalSales);
+                    var s = dataa.aaDataFloorwiseMetalSales[0][1];
+                    var stackstart = "<thead>";
+                    var tablestackcont = "<tr><th></th><th style='color: #a2d200;'>GOLD</th><th style='color: #ffc100;'>SILVER</th><th style='color: #ff4a43;'>DIAMOND</th><th style='color: #61584D;'>OTHERS</th>";
+                    var stckclose = "</tr></thead>";
+                    var stackBdstart = "<tbody>"; //<tr><th></th>
+                    var stackdata = "";
+                    var stdt = "";
+                    var stackend = "</tr></tbody>";
+
+
+                    for (var i = 0; i < dataa.aaDataFloorwiseMetalSales.length; i++) {
+                        stackdata = "<tr><th>" + dataa.aaDataFloorwiseMetalSales[i][0] + "</th><td>" + dataa.aaDataFloorwiseMetalSales[i][1] + "</td>" + "<td>" + dataa.aaDataFloorwiseMetalSales[i][2] + "</td>" + "<td>" + dataa.aaDataFloorwiseMetalSales[i][3] + "</td>" + "<td>" + dataa.aaDataFloorwiseMetalSales[i][4] + "</td></tr>";
+                        stdt = stdt + stackdata;
+                        var gettot = [];
+                        gettot.push(dataa.aaDataFloorwiseMetalSales[i][0]);
+                        gettot.push(dataa.aaDataFloorwiseMetalSales[i][1] + dataa.aaDataFloorwiseMetalSales[i][2] + dataa.aaDataFloorwiseMetalSales[i][3] + dataa.aaDataFloorwiseMetalSales[i][4]);
+                        gettot.push(dataa.aaDataFloorwiseMetalSales[i][1]);
+                        gettot.push(dataa.aaDataFloorwiseMetalSales[i][2]);
+                        gettot.push(dataa.aaDataFloorwiseMetalSales[i][3]);
+                        gettot.push(dataa.aaDataFloorwiseMetalSales[i][4]);
+                        TooltipTotal.push(gettot);
+                    }
+                    var StackContent = stackstart + tablestackcont + stckclose + stackBdstart + stdt + stackend;
+
+                    var el11 = $('table.flot-chart11');
+
+                    el11[0].innerHTML = StackContent;
+
+
+                    el11.each(function () {
+                        var data = $(this).data();
+                        var colors = ["#a2d200", "#ffc100", "#ff4a43", "#22beef", "#16a085"];
+                        var gridColor = data.tickColor || 'rgba(0,0,0,.1)';
+
+                        $(this).find('thead th:not(:first)').each(function () {
+                            colors.push($(this).css('color'));
+                        });
+
+                        if (data.type) {
+                            bars = data.type.indexOf('bars') != -1;
+                            lines = data.type.indexOf('lines') != -1;
+                            pie = data.type.indexOf('pie') != -1;
+                        }
+
+                        $(this).graphTable({
+                            series: 'columns',
+                            position: 'replace',
+                            colors: colors,
+                            width: data.width,
+                            height: data.height
+                        },
+                        {
+                            series: {
+                                stack: data.stack,
+                                pie: {
+                                    show: pie,
+                                    innerRadius: data.innerRadius || 0,
+                                    label: {
+                                        show: data.pieLabel == 'show' ? true : false
+                                    }
+                                },
+                                bars: {
+                                    show: bars,
+                                    barWidth: data.barWidth || 0.5,
+                                    fill: data.fill || 1,
+                                    align: 'center'
+                                },
+                                lines: {
+                                    show: lines,
+                                    fill: 0.1,
+                                    lineWidth: 3
+                                },
+                                shadowSize: 0,
+                                points: {
+                                    radius: 4
+                                }
+                            },
+                            xaxis: {
+                                mode: 'categories',
+                                tickLength: 0,
+                                font: {
+                                    lineHeight: 24,
+                                    weight: '300',
+                                    color: data.fontColor,
+                                    size: 14
+                                }
+                            },
+                            yaxis: {
+                                tickColor: gridColor,
+                                // tickFormatter: function number(x) { var num; if (x >= 1000) { num = (x / 1000) + 'k'; } else { num = x; } return num; },
+                                max: s,
+                                font: {
+                                    lineHeight: 13,
+                                    weight: '300',
+                                    color: data.fontColor
+                                }
+                            },
+                            grid: {
+                                borderWidth: {
+                                    top: 0,
+                                    right: 0,
+                                    bottom: 1,
+                                    left: 1
+                                },
+                                borderColor: gridColor,
+                                margin: 13,
+                                minBorderMargin: 0,
+                                labelMargin: 20,
+                                hoverable: true,
+                                clickable: true,
+                                mouseActiveRadius: 6
+                            },
+                            legend: { show: data.legend == 'show' ? true : false },
+                            tooltip: data.toolTip == 'show' ? true : false,
+                            //tooltipOpts: { content: (pie ? '%p.0%, %s' : '<b>%s</b> :  %y Rs.') }
+
+                            tooltipOpts: {
+                                content: getTooltipAntoTotal,
+                                defaultTheme: false
+                            }
+                        });
+                    });
+                }
+            });
+
+            function getTooltipAntoTotal(label, x, y) {
+                var FloorTot = '';
+                var ItemType = '';
+                for (var a = 0; a < TooltipTotal.length; a++) {
+                    if (x == TooltipTotal[a][0]) {
+                        FloorTot = AmountWithComma(TooltipTotal[a][1]);
+                        if(y == TooltipTotal[a][2])
+                        {
+                        ItemType = 'GOLD';
+                        }
+                        else  if(y == TooltipTotal[a][3])
+                        {
+                        ItemType = 'SILVER';
+                        }
+                        else  if(y == TooltipTotal[a][4])
+                        {
+                        ItemType = 'DIAMOND';
+                        }
+                        else  if(y == TooltipTotal[a][5])
+                        {
+                        ItemType = 'OTHERS';
+                        } 
+                        
+                    }
+                }
+            return "<strong>" + ItemType + "</strong> : " + AmountWithComma(y) + " Rs.<br><strong>TOTAL</strong> : " + FloorTot + " Rs.";
+                
+            }
+                //Floorwise metal sales end //
+
+            };
+
+            //            $('.custom-labels').each(function () {
+            //                var el = $(this);
+            //                var data = el.data();
+            //                var colors = ["rgb(162, 210, 0)", "rgb(255, 193, 0)", "rgb(255, 74, 67)"];
+            //                var info = ["DELIVERED", "PENDING", "OVERDUE"];
+            //                var item = '';
+
+            //                $(data.targetFlot).find('thead th:not(:first)').each(function () {
+            //                    colors.push($(this).css('color'));
+            //                    info.push($(this).text());
+            //                });
+            //                $.ajax
+            //                ({
+            //                    type: "POST",
+            //                    url: "Orderdetails",
+            //                    dataType: "json",
+            //                    success: function (dataa) {
+            //                        for (var i = 0; i < dataa.aaDataOrdersummary.length; i++) {
+            //                            item += '<li style="color:' + colors[i] + '"><span class="label" style="background-color:' + colors[i] + '">' + dataa.aaDataOrdersummary[i][1] + '</span>' + info[i] + '</li>';
+            //                        }
+            //                        el.append('<ul class="nolisttypes">' + item + '</ul>');
+            //                    }
+            //                });
+
+            //            });
+
+
+            initializeFlot();
+            $('#DivFloorwiseChit').click(function () {
+                //To get the usertype of the Logged in Person - Start
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/FloorwiseChit?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End  
+
+                window.location = ("/Home/FloorwiseChit?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+            });
+
+            $('#DivOrderSummary').click(function () {
+                //To get the usertype of the Logged in Person - Start
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/OrderSummaryPage?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End 
+
+                window.location = ("/Home/OrderSummaryPage?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+
+            });
+
+            $('#DIVfloormetalsales').click(function () {
+                //To get the usertype of the Logged in Person - Start
+
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/FloorWiseMetalSales?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End  
+
+                window.location = ("/Home/FloorWiseMetalSales?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+
+            });
+
+            //daily sales target silver start//
+            $.ajax
+            ({
+                type: "POST",
+                url: "DailySalesTargetSIL?Branch=" + Branch,
+                dataType: "json",
+                success: function (dataaaa) {
+
+                    var dataPrediction = dataaaa.aaDataSalesTargetSILVER[0][1];
+                    var datanetwt = dataaaa.aaDataSalesTargetSILVER[0][2];
+                    //var total = dataPrediction + datanetwt;
+                    var totalpercentPrediction = (datanetwt / dataPrediction) * 100;
+                    //var totalpercentNOTsales = (nodatasales1 / totalcnt) * 100;
+                    var g02 = new JustGage({
+                        id: "gauge06",
+                        value: totalpercentPrediction,
+                        title: '',
+                        min: 0,
+                        max: 100,
+                        label: 'Percentage',
+                        titleFontColor: "#717171"
+                    });
+                    $('#lblPrediction').html('DAILY TARGET - ' + (dataaaa.aaDataSalesTargetSILVER[0][1]).toFixed(3) + '(wt.)');
+                    $('#lblNetwt').html('DAILY SALES - ' + (dataaaa.aaDataSalesTargetSILVER[0][2]).toFixed(3) + '(wt.)');
+                }
+            });
+            //daily sales target silver end//
+            // Combined flot chart
+
+            //            $('#DIVTrendinsale').click(function () {
+            //                window.location = ("/Home/TrendinSales");
+
+            //            });
+            var dates = [];
+            $.ajax
+                 ({
+                     type: "POST",
+                     url: "DashboardTrendinSales?Branch=" + Branch,
+                     dataType: "json",
+                     success: function (dataaa) {
+                         console.log('aaDataTrendinSalesrpt :' + dataaa.aaDataTrendinSalesrpt);
+                         var mainarr = [];
+                         var mainarr1 = [];
+                         dates = [];
+                         for (i = 0; i < dataaa.aaDataTrendinSalesrpt.length; i++) {
+                             var innerarr = [];
+                             innerarr.push(dataaa.aaDataTrendinSalesrpt[i][0].toString());
+                             innerarr.push(dataaa.aaDataTrendinSalesrpt[i][2]);
+                             mainarr.push(innerarr);
+                             var innerarr1 = [];
+                             innerarr1.push(dataaa.aaDataTrendinSalesrpt[i][0].toString());
+                             innerarr1.push(dataaa.aaDataTrendinSalesrpt[i][4]);
+                             mainarr1.push(innerarr1);
+                             var datearr = [];
+                             datearr.push(dataaa.aaDataTrendinSalesrpt[i][1]);
+                             //dates.push(datearr);
+                             var value = dataaa.aaDataTrendinSalesrpt[i][1];
+                             var dtString = "Dummy";
+                             console.log('value :' + value);
+                             if (value.substring(0, 6) == "/Date(") {
+                                 var dt = new Date(parseInt(value.substring(6, value.length - 2)));
+                                 dtString = dt.getDate() + "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
+                             }
+                             var ddates = [];
+                             ddates.push(dataaa.aaDataTrendinSalesrpt[i][0].toString());
+                             ddates.push(dtString);
+                             dates.push(ddates);
+                             // trendsalesthisweek.push(dataaa.aaDataTrendinSalesrpt[i][0] + ',' + dataaa.aaDataTrendinSalesrpt[i][2]);
+                             // trendsaleslastweek.push(dataaa.aaDataTrendinSalesrpt[i][0] + ',' + dataaa.aaDataTrendinSalesrpt[i][4]);
+                         }
+                         console.log('dates :' + dates);
+                         console.log('mainarr : ' + mainarr);
+                         console.log('mainarr1 : ' + mainarr1);
+                         // for (var ii = 0; ii < dataaa.aaDataTrendinSalesrpt.length; ii++) {
+                         // var obj1 = [];
+                         // var obj2 = [];
+                         // var x = dataaa.aaDataTrendinSalesrpt[ii][0] + ', ' + dataaa.aaDataTrendinSalesrpt[ii][2];
+                         // var y = dataaa.aaDataTrendinSalesrpt[ii][0] + ', ' + dataaa.aaDataTrendinSalesrpt[ii][4];
+                         // obj1.push(x);
+                         // obj2.push(y);
+                         // datasalessss.push(obj1);
+                         // ssss.push(obj2);
+                         // } 
+
+                         var v1 = [['JAN', 150], ['FEB', 181], ['Mar', 252], ['APR', 356], ['MAY', 851], ['JUN', 1589], ['JUL', 951], ['AUG', 651], ['SEP', 591], ['OCT', 382], ['NOV', 951], ['DEC', 741]];
+                         var v2 = [['JAN', 145], ['FEB', 178], ['Mar', 200], ['APR', 350], ['MAY', 212], ['JUN', 486], ['JUL', 841], ['AUG', 546], ['SEP', 571], ['OCT', 300], ['NOV', 854], ['DEC', 685]];
+
+                         $.plot('#combined-chart', [
+                 {
+                     //label: 'Last Week',
+                     data: mainarr,
+                     bars: {
+                         show: true,
+                         barWidth: 0.5,
+                         fill: 1,
+                         align: 'center'
+                     }
+                 },
+                 {
+                     //label: 'Last Week',
+                     data: mainarr,
+                     lines: {
+                         show: true,
+                         lineWidth: 3
+                     }
+                 }],
+                 {
+                     colors: ['#eaf9fe', '#22beef'],
+                     xaxis: {
+                         mode: 'categories',
+                         tickLength: 0,
+                         font: {
+                             lineHeight: 24,
+                             weight: '300',
+                             color: '#717171',
+                             size: 14
+                         }
+                     },
+                     yaxis: {
+                         tickColor: 'rgba(0,0,0,0.2)',
+                         //tickFormatter: function number(x) { var num; if (x >= 1000) { num = (x / 1000) + ' k'; } else { num = x; } return num; },
+                         font: {
+                             lineHeight: 13,
+                             weight: '300',
+                             color: '#717171'
+                         }
+                     },
+                     grid: {
+                         borderWidth: {
+                             top: 0,
+                             right: 0,
+                             bottom: 1,
+                             left: 1
+                         },
+                         margin: 13,
+                         labelMargin: 20,
+                         hoverable: true,
+                         clickable: true,
+                         mouseActiveRadius: 6,
+                         color: 'rgba(0,0,0,0.2)'
+                     },
+                     legend: { show: false },
+                     tooltip: true,
+                     tooltipOpts: {
+                         content: getTooltipAnto,
+                         defaultTheme: false
+                     }
+                     //                     tooltip: {
+                     //                         shared: true,
+                     //                         formatter: function () {
+                     //                             var s = dataaa.aaDataTrendinSalesrpt[0][0] - this.points[0].y;
+                     //                             return s;
+                     //                         }
+                     //                     }
+                 });
+                     }
+                 });
+
+            function getTooltipAnto(label, x, y) {
+                var showdate = '';
+                for (var a = 0; a < dates.length; a++) {
+                    if (x == dates[a][0]) {
+                        showdate = dates[a][1];
+                    }
+                }
+                return "Day : " + x + " [" + showdate + "]  <br> Amt : " + AmountWithComma(y.toFixed(2)) + " Rs.";
+            }
+
+
+
+            //            // Rickshaw chart
+            //            var graph;
+            //            var seriesData = [[], []];
+            //            var sss = [];
+            //            var datasales = [];
+            //            var datanotsales = [];
+            //            var random = new Rickshaw.Fixtures.RandomData(50);
+            //            var TitleStart = "<p class='description'>";
+            //            var TitleEnd = "</p>";
+            //            var TitleMiddle = "";
+            //            var TitleFinal = "";
+            //            var Titlelast = "";
+            //            var Totalsaleheader = "";
+            //            $.ajax
+            //            ({
+            //                type: "POST",
+            //                url: "EstimationToConversion?FromDate=" + fromdate + "&ToDate=" + todate,
+            //                dataType: "json",
+            //                success: function (dataaaa) {
+            //                    //                    console.log('aaDataSales :' + dataaaa.aaDataSales);
+            //                    //                    console.log('aaDataNotSales :' + dataaaa.aaDataNotSales);
+            //                    //                    console.log('aaDataEstimationRptTable :' + dataaaa.aaDataEstimationRptTable);
+            //                    //for (var j = 0; j < dataaaa.aaDataSales.length; j++) {
+            //                    //    var $el = $('#rickshaw-chart');
+            //                    //    var values = $el.html(dataaaa.aaDataSales[1]);
+            //                    //}
+
+            //                    for (var i = 0; i < 50; i++) {
+            //                        random.addData(seriesData);
+            //                    }
+
+            //                    Totalsaleheader = "<h4><span class='animate-number' data-animation-duration='1600'>Total Count = " + dataaaa.aaDataEstimationTotal[0][0] + "</span></h4>";
+            //                    $('#Titleheader').html(Totalsaleheader);
+
+            //                    TitleMiddle = "<strong class='white-text'> Converted to Sale </strong>" + dataaaa.aaDataEstimationRptTable[0][2] + ",  <strong class='white-text'> Not Converted to Sale </strong>" + dataaaa.aaDataEstimationRptTable[0][3];
+            //                    Titlelast = TitleStart + TitleMiddle + TitleEnd;
+            //                    $('#divwidget').html(Titlelast);
+
+            //                    for (var ii = 1; ii < dataaaa.aaDataSales.length; ii++) {
+            //                        var obj = {};
+            //                        var x = ii;
+            //                        var y = dataaaa.aaDataSales[ii];
+            //                        obj["x"] = x;
+            //                        obj["y"] = y;
+            //                        datasales.push(obj);
+            //                    }
+            //                    sss.push(datasales);
+
+            //                    for (var ii = 1; ii < dataaaa.aaDataNotSales.length; ii++) {
+            //                        var obj = {};
+            //                        var x = ii;
+            //                        var y = dataaaa.aaDataNotSales[ii];
+            //                        obj["x"] = x;
+            //                        obj["y"] = y;
+            //                        datanotsales.push(obj);
+            //                    }
+            //                    sss.push(datanotsales);
+
+
+            //                    graph = new Rickshaw.Graph({
+            //                        element: document.querySelector('#rickshaw-chart'),
+            //                        height: 170,
+            //                        renderer: 'area',
+            //                        series: [
+            //                          {
+            //                              data: sss[0],
+            //                              color: '#1693A5',
+            //                              name: 'Converted To Sales'
+            //                          }, {
+            //                              data: sss[1],
+            //                              color: '#e2e2e2',
+            //                              name: 'Not Converted To Sales'
+            //                          }
+            //                        ]
+            //                    });
+
+            //                    var hoverDetail = new Rickshaw.Graph.HoverDetail({
+            //                        graph: graph
+            //                    });
+
+            //                    setInterval(function () {
+            //                        random.removeData(seriesData);
+            //                        random.addData(seriesData);
+            //                        graph.update();
+
+            //                    }, 1000);
+            //                }
+            //            });
+
+            $('#DIVEstimation').click(function () {
+                //To get the usertype of the Logged in Person - Start
+
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/EstimationConversion?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End 
+
+                window.location = ("/Home/EstimationConversion?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+
+            });
+
+
+            $.ajax
+            ({
+                type: "POST",
+                url: "Estimation?Branch=" + Branch,
+                dataType: "json",
+                success: function (dataaaa) {
+
+                    var datasales1 = dataaaa.aaDataEstimationRpt[0][1];
+                    var nodatasales1 = dataaaa.aaDataEstimationRpt[1][1];
+                    var totalcnt = datasales1 + nodatasales1;
+                    var datasalesAmt1 = dataaaa.aaDataEstimationRpt[0][2];
+                    var nodatasalesAmt1 = dataaaa.aaDataEstimationRpt[1][2];
+                    var totalAmt = datasalesAmt1 + nodatasalesAmt1;
+                    var totalpercentSales = (datasalesAmt1 / totalAmt) * 100;
+                    var totalpercentNOTsales = (nodatasales1 / totalcnt) * 100;
+                    var g02 = new JustGage({
+                        id: "gauge02",
+                        value: totalpercentSales,
+                        // title: "ESTIMATION ",
+                        min: 0,
+                        max: 100,
+                        label: 'Percentage',
+                        // gaugeWidthScale: .3,
+                        titleFontColor: "#717171"
+                    });
+
+                    $('#lblSaleCnt').html('Sale Count - ' + dataaaa.aaDataEstimationRpt[0][1]);
+                    $('#lblNoSaleCnt').html('NoSale Count - ' + dataaaa.aaDataEstimationRpt[1][1]);
+                    $('#lblSaleAmt').html('Sale Amount - ' + AmountWithComma(dataaaa.aaDataEstimationRpt[0][2].toFixed(2)));
+                    $('#lblNoSaleAmt').html('NoSale Amount - ' + AmountWithComma(dataaaa.aaDataEstimationRpt[1][2].toFixed(2)));
+
+                    $('#lblTotalSaleCnt').html('Total Estimation Count - ' + totalcnt);
+                    $('#lblTotalSaleAmt').html('Total Estimation Amount - ' + AmountWithComma(totalAmt.toFixed(2)));
+
+                    //                    window.setInterval(function () {
+
+                    //                        // refresh easy pie chart
+                    //                        charts.each(function () {
+                    //                            $(this).data('easyPieChart').update(Math.floor(100 * Math.random()));
+                    //                        });
+
+                    //                        // refresh justGage charts
+                    //                        g01.refresh(getRandomInt(0, 100));
+                    //                        g02.refresh(getRandomInt(0, 100));
+                    //                        g03.refresh(getRandomInt(0, 100));
+                    //                        g04.refresh(getRandomInt(0, 100));
+
+                    //                    }, 5000);
+                }
+            });
+
+
+
+            //animate numbers with class .animate-number with data-value attribute
+            $('.animate-number').each(function () {
+                var value = $(this).data('value');
+                var duration = $(this).data('animation-duration');
+
+                $(this).animateNumbers(value, true, duration, 'linear');
+            });
+
+            //animate progress bars
+            $('.animate-progress-bar').each(function () {
+                var progress = $(this).data('percentage');
+
+                $(this).css('width', progress);
+            });
+
+            // Sparkline Line Chart
+
+            var QTRdataProjection = new Array();
+            var QTRdataNTWT = new Array();
+            var QTRYaxis = new Array();
+            var QTRYaxiss = new Array();
+            var QTRWeightorCarrot = new Array();
+
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "SecondQTRTarget?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+
+                     console.log('SalesVsTarget :' + dataaaa.aaDataSalesVsTarget);
+
+                     for (var ii = 0; ii < dataaaa.aaDataSalesVsTarget.length; ii++) {
+                         QTRdataNTWT.push(dataaaa.aaDataSalesVsTarget[ii][2]); //sales
+                     }
+
+                     for (var jj = 0; jj < dataaaa.aaDataSalesVsTarget.length; jj++) {
+                         QTRdataProjection.push(dataaaa.aaDataSalesVsTarget[jj][1]); //dailytarget
+                     }
+                     //                     for (var ii = 0; ii < dataaaa.aaDataSalesVsTarget.length; ii++) {
+                     //                         QTRYaxis.push(dataaaa.aaDataSalesVsTarget[ii][0] + ' : ' + dataaaa.aaDataSalesVsTarget[ii][1] + ' : ' + dataaaa.aaDataSalesVsTarget[ii][2]);
+                     //                     }
+                     for (var ii = 0; ii < dataaaa.aaDataSalesVsTarget.length; ii++) {
+                         QTRYaxis.push(dataaaa.aaDataSalesVsTarget[ii][0] + ' : ' + (dataaaa.aaDataSalesVsTarget[ii][2]).toFixed(3));
+                         if (dataaaa.aaDataSalesVsTarget[ii][0].indexOf("DIAMOND") >= 0) {
+                             QTRWeightorCarrot.push('ct');
+                         }
+                         else {
+                             QTRWeightorCarrot.push('wt');
+                         }
+                     }
+                     for (var ii = 0; ii < dataaaa.aaDataSalesVsTarget.length; ii++) {
+                         QTRYaxiss.push(dataaaa.aaDataSalesVsTarget[ii][0] + ' : ' + (dataaaa.aaDataSalesVsTarget[ii][1]).toFixed(3));
+                     }
+
+                     $('#sparkline01').sparkline(QTRdataProjection, {
+                         type: 'line',
+                         width: '100%',
+                         height: '250px',
+                         fillColor: 'rgba(255, 74, 67, .6)',
+                         lineColor: 'rgba(255, 74, 67, .8)',
+                         lineWidth: 2,
+                         spotRadius: 5,
+                         //valueSpots: [5, 6, 8, 7, 6, 8, 5, 4, 7],
+                         minSpotColor: '#ffeced',
+                         maxSpotColor: '#d90200',
+                         highlightSpotColor: '#d90200',
+                         highlightLineColor: '#bec6ca',
+                         normalRangeMin: 0,
+                         tooltipFormat: '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}} {{offset:wtorct}}.)',
+                         tooltipValueLookups: {
+                             names: QTRYaxiss,
+                             wtorct: QTRWeightorCarrot
+                         }
+                     });
+                     $('#sparkline01').sparkline(QTRdataNTWT, {
+                         type: 'line',
+                         composite: true,
+                         width: '100%',
+                         height: '250px',
+                         fillColor: 'rgba(34, 190, 239, .3)',
+                         lineColor: 'rgba(34, 190, 239, .5)',
+                         lineWidth: 2,
+                         minSpotColor: '#eaf9fe',
+                         maxSpotColor: '#00a3d8',
+                         highlightSpotColor: '#00a3d8',
+                         highlightLineColor: '#bec6ca',
+                         spotRadius: 5,
+                         //valueSpots: [2, 3, 4, 3, 1, 2, 4, 1, 3],
+                         normalRangeMin: 0,
+                         tooltipFormat: '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}} {{offset:wtorct}}.)',
+                         tooltipValueLookups: {
+                             names: QTRYaxis,
+                             wtorct: QTRWeightorCarrot
+                         }
+                     });
+                 }
+             });
+
+
+            $('#DIVDailySales').click(function () {
+
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         //window.location = ("/Home/FloorwiseChit?USERTYPE=" + dataaaa);
+                //                         window.location = ("/Home/DailySalesVsTargetShowroom?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+
+                window.location = ("/Home/DailySalesVsTargetShowroom?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+            });
+
+            $('#DIVDailysalSIL').click(function () {
+
+                window.location = ("/Home/DailySalesVsTargetSILShowroom?USERTYPE=" + UserType + "&Branch=" + Branch);
+                       
+            });
+
+            //end
+
+            // Order Summary Starts
+
+            //            $.ajax
+            //             ({
+            //                 type: "POST",
+            //                 url: "Orderdetails",
+            //                 dataType: "json",
+            //                 success: function (dataa) {
+            //                     var htmlstart = "<div class='tile-body'>"
+            //                     var tablestart = "<table id='pie-chart02' class='flot-chart' data-type='pie' data-inner-radius='0.8' data-pie-label='hidden' data-width='100%' data-height='250px' data-tool-tip='show'>";
+            //                     var headstart = "<thead>";
+            //                     var tablecont = "<tr><th></th><th style='color: #a2d200;'>DELIVERED</th><th style='color: #ffc100;'>PENDING</th><th style='color: #ff4a43;'>OVERDUE</th>";
+            //                     var rowclose = "</tr></thead>";
+            //                     var tableBdstart = "<tbody><tr><th></th>";
+            //                     var tabledata = "";
+            //                     var tbldt = "";
+            //                     var tblend = "</tr></tbody></table>";
+            //                     var tableend = "<div class='custom-label' data-target-flot='#pie-chart02'></div>";
+            //                     var htmlend = "</div>"
+            //                     for (i = 0; i < dataa.aaDataOrdersummary.length; i++) {
+            //                         tabledata = "<td>" + dataa.aaDataOrdersummary[i][2] + "</td>";
+            //                         tbldt = tbldt + tabledata;
+            //                     }
+            //                     var htmlfullcontent = htmlstart + tablestart + headstart + tablecont + rowclose + tableBdstart + tbldt + tblend + tableend + htmlend;
+            //                     $('#ordersummary').html(htmlfullcontent);
+            //                 }
+            //             });
+
+            //End
+
+
+            //Special Approvals - Start
+
+            $('#DIVSpecialApproval').click(function () {
+                //To get the usertype of the Logged in Person - Start
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/SpecialApprovalpage?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End  
+
+                window.location = ("/Home/SpecialApprovalpage?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+            });
+
+            $('#DIVSalesReturn').click(function () {
+                //To get the usertype of the Logged in Person - Start
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/SalesReturn?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End  
+
+                window.location = ("/Home/SalesReturn?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+            });
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "SpecialApprovals?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataa) {
+                     //                     var CanvasStartEnd = "<canvas id='temp1' width='100' height='35'> </canvas>";
+                     //                     var para = "<p>"; //class='text-center large-thin'
+                     //                     var SpanStart = "<span class='animate-number'>"; //data-values='07'
+                     //                     var ParaSpanEnd = "</span></p>";
+                     //                     var Dataone = "<h4>Customer Count</h4>" + dataa.aaDataSpecialApproval[0][0] + "<h4>Total Count</h4>" + dataa.aaDataSpecialApproval[0][1]; //<h3>APPROVALS</h3>
+                     //                     var DataTwo = "<h3>SALES RETURN</h3><h5>TOTAL Count</h4>" + dataa.aaDataSalesReturns[0][0] + "<h5>Total AMOUNT</h4>" + dataa.aaDataSalesReturns[0][2];
+                     //                     var TextFinal = "";
+                     //                     TextFinal = CanvasStartEnd + para + SpanStart + Dataone; //+ DataTwo
+                     //                     $('#SplApprovals').html(TextFinal);
+                     $('#lblcustomercount').html(dataa.aaDataSpecialApproval[0][0]);
+                     $('#lblcustomertotalcount').html(dataa.aaDataSpecialApproval[0][1]);
+                     $('#lblcustomertotalAmt').html(AmountWithComma((dataa.aaDataSpecialApproval[0][2]).toFixed(2)));
+                     $('#lbltotalcountSR').html(dataa.aaDataSalesReturns[0][0]);
+                     $('#lbltotalamount').html(AmountWithComma((dataa.aaDataSalesReturns[0][2]).toFixed(2)));
+                 }
+             });
+
+
+
+
+            //Special Approvals - End
+
+            // Sparkline Bar Chart
+            var stockdata = new Array();
+            var stockYaxis = new Array();
+            var SAWeightorCarrot = new Array();
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "StockAvailabilty?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     //console.log('SalesVsTarget :' + dataaaa.aaDataStockAvailable);
+                     for (var ii = 0; ii < dataaaa.aaDataStockAvailable.length; ii++) {
+                         stockdata.push(dataaaa.aaDataStockAvailable[ii][2]);
+                     }
+                     for (var ii = 0; ii < dataaaa.aaDataStockAvailable.length; ii++) {
+                         stockYaxis.push(dataaaa.aaDataStockAvailable[ii][1] + ' : ' + dataaaa.aaDataStockAvailable[ii][2]);
+                         if (dataaaa.aaDataStockAvailable[ii][1].indexOf("DIAMOND") >= 0) {
+                             SAWeightorCarrot.push('ct');
+                         }
+                         else {
+                             SAWeightorCarrot.push('wt');
+                         }
+                     }
+                     var $el = $('#sparkline02');
+                     //var values = $el.data('values').split(',').map(parseFloat);
+                     var type = $el.data('type') || 'line';
+                     var height = $el.data('height') || 'auto';
+
+                     var parentWidth = $el.parent().width();
+                     var valueCount = stockdata.length;
+                     var barSpacing = 5;
+
+                     var barWidth = Math.round((parentWidth - (valueCount - 1) * barSpacing) / valueCount);
+                     //console.log(stockYaxis);
+                     $el.sparkline(stockdata, {
+                         width: '100%',
+                         type: type,
+                         height: height,
+                         barWidth: barWidth,
+                         barSpacing: barSpacing,
+                         barColor: '#16a085',
+                         negBarColor: '#FF0066',
+                         tooltipFormat: '<span style="color: {{color}}">&#9679;</span> {{offset:names}} ({{percent.1}} {{offset:wtorct}}.)',
+                         tooltipValueLookups: {
+                             names: stockYaxis,
+                             wtorct: SAWeightorCarrot
+                         }
+                     });
+                 }
+             });
+
+            $('#DIVstockavail').click(function () {
+                //To get the usertype of the Logged in Person - Start
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/StockAgeing?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End
+
+                window.location = ("/Home/StockAgeing?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+            });
+
+            // Sparkline Pie Chart         
+
+
+            var metal = "";
+            var fromdate = "";
+            var todate = "";
+            var realdata = new Array();
+            var Top10SalesYaxis = new Array();
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "ComparisonTop10Sales?MetalID=" + metal + "&FromDate=" + fromdate + "&ToDate=" + todate + "&Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     //  alert('data :' + dataaaa.aaDataMLchart);
+
+                     //                     for (i = 0; i < dataaaa.aaDataMLchart.length; i++) {                       
+                     //                         realdata.push(dataaaa.aaDataMLchart[i])
+                     //                     }
+
+                     for (var ii = 0; ii < dataaaa.aaDataMLchart.length; ii++) {
+                         realdata.push(dataaaa.aaDataMLchart[ii][1])
+                     }
+                     for (var ii = 0; ii < dataaaa.aaDataMLchart.length; ii++) {
+                         Top10SalesYaxis.push(dataaaa.aaDataMLchart[ii][0] + ' : ' + dataaaa.aaDataMLchart[ii][1]);
+                     }
+
+                     $('#sparkline03').sparkline(realdata, {
+                         type: 'pie',
+                         name: "Amount",
+                         width: 'auto',
+                         height: '250px',
+                         sliceColors: ['#a2d200', '#ffc100', '#ff4a43', '#22beef', '#16a085', '#1693A5', '#555', '#CD97EB', '#D6D2CC', '#D1CF0D', '#C25094'],
+                         tooltipFormat: '<span style="color: {{color}}">&#9679;</span> {{offset:names}} Rs.',
+                         tooltipValueLookups: {
+                             names: Top10SalesYaxis
+                         }
+                     });
+                 }
+             });
+
+            //Sales Person Performance//
+            //            var Fulldata = new Array();
+            //            var Tdate = "";
+            //            var SalesPersonYaxis = new Array();
+            //            $.ajax
+            //             ({
+            //                 type: "POST",
+            //                 url: "SalesPerformance",
+            //                 dataType: "json",
+            //                 success: function (dataaaa) {
+            //                     for (var ii = 0; ii < dataaaa.aaDataSalesPerformanceTop10.length; ii++) {
+            //                         Fulldata.push(dataaaa.aaDataSalesPerformanceTop10[ii][3]);
+            //                     }
+            //                     for (var ii = 0; ii < dataaaa.aaDataSalesPerformanceTop10.length; ii++) {
+            //                         SalesPersonYaxis.push(dataaaa.aaDataSalesPerformanceTop10[ii][0] + ' : ' + dataaaa.aaDataSalesPerformanceTop10[ii][1]);
+            //                     }
+            //                     $('#sparkline04').sparkline(Fulldata, {
+            //                         type: 'pie',
+            //                         width: 'auto',
+            //                         height: '250px',
+            //                         sliceColors: ['#a2d200', '#ffc100', '#ff4a43', '#22beef', '#16a085', '#1693A5', '#555', '#CD97EB', '#D6D2CC', '#D1CF0D', '#C25094'],
+            //                         tooltipFormat: '<span style="color: {{color}}">&#9679;</span> {{offset:names}} CNT',
+            //                         tooltipValueLookups: {
+            //                             names: SalesPersonYaxis
+            //                         }
+            //                     });
+            //                 }
+            //             });
+
+            //            $('#Salescontainer').click(function () {
+            //                window.location = ("/Home/SalesPersonPerformance");
+            //                // location.href = "@Url.Action("SalesPersonPerformance", "Home")";
+            //            });
+            function DIVSALESPERSON() {
+                alert('Anto');
+                window.location = ("/Home/SalesPersonPerformance");
+            }
+
+            $('#DivSalesPersonPerform').click(function () {
+                //To get the usertype of the Logged in Person - Start
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/SalesPersonPerformance?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End
+
+                window.location = ("/Home/SalesPersonPerformance?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+            });
+
+            $('#DivCounterSales').click(function () {
+                //To get the usertype of the Logged in Person - Start
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/Top10Counterwisesales?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End
+
+                window.location = ("/Home/Top10Counterwisesales?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+            });
+
+            // Morris donut chart
+
+            $('#DivFloorWiseSale').click(function () {
+                //To get the usertype of the Logged in Person - Start
+                //                $.ajax
+                //                 ({
+                //                     type: "POST",
+                //                     url: "GetUserType",
+                //                     dataType: "text",
+                //                     success: function (dataaaa) {
+                //                         console.log('USERTYPE : ' + dataaaa);
+                //                         window.location = ("/Home/FloorWiseSales?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+                //                     }
+                //                 });
+                //To get the usertype of the Logged in Person - End  
+
+                window.location = ("/Home/FloorWiseSales?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+            });
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "FloorwiseSaless?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaa) {
+                     //                     console.log('aaDataSalesAmt :' + dataaa.aaDataSalesAmt);
+                     //                     console.log('aaDataSalesValue :' + dataaa.aaDataSalesValue);
+                     //                     console.log('aaDataSalesTurnOvr :' + dataaa.aaDataSalesTurnOvr);
+                     //                     console.log('aaDataAxis :' + dataaa.aaDataAxis);
+                     var donut = new Array();
+                     for (var ii = 0; ii < dataaa.aaDataFloorSale.length; ii++) {
+                         item = {};
+                         item["label"] = dataaa.aaDataFloorSale[ii][1].toString();
+                         item["value"] = dataaa.aaDataFloorSale[ii][4];
+                         donut.push(item);
+                     }
+                     Morris.Donut({
+                         element: 'donut-example',
+                         data: donut,
+                         colors: ['#a2d200', '#ffc100', '#ff4a43', '#22beef', '#16a085', '#1693A5', '#555', '#CD97EB', '#1A4C33', '#D6D2CC', '#D1CF0D', '#C25094', '#14F685']
+                     });
+
+                     //                     for (j = 0; j < dataaa.aaDatafulltable.length; j++) {
+                     //                         Morris.Donut({
+                     //                             element: 'donut-example',
+                     //                             data: [
+                     //                              { label: dataaa.aaDatafulltable[j][1], value: dataaa.aaDatafulltable[j][2] },
+                     //                              { label: dataaa.aaDatafulltable[j][1], value: dataaa.aaDatafulltable[j][2] },
+                     //                              { label: dataaa.aaDatafulltable[j][1], value: dataaa.aaDatafulltable[j][2] },
+                     //                              { label: dataaa.aaDatafulltable[j][1], value: dataaa.aaDatafulltable[j][2] },
+                     //                              { label: dataaa.aaDatafulltable[j][1], value: dataaa.aaDatafulltable[j][2] },
+                     //                              { label: dataaa.aaDatafulltable[j][1], value: dataaa.aaDatafulltable[j][2] }
+
+                     //                            ],
+                     //                             colors: ['#00a3d8', '#2fbbe8', '#72cae7', '#808080', '#800000', '#808000', '#00FFFF', '#800080', '#FFFF00', '#008000', '#008080', '#0000FF', '#FF00FF']
+                     //                         });
+                     //                     }
+                 }
+             });
+
+
+            //            Morris.Donut({
+            //                element: 'donut-example',
+            //                data: [
+            //                      { label: "Download Sales", value: 12 },
+            //                      { label: "In-Store Sales", value: 30 },
+            //                      { label: "Mail-Order Sales", value: 20 }
+            //                    ],
+            //                colors: ['#00a3d8', '#2fbbe8', '#72cae7']
+            //            });
+
+            // Generate easy-pie charts
+            var charts = $('.easypiechart .percentage');
+            charts.easyPieChart({
+                animate: 2000,
+                onStart: function (value) {
+                    $(this.el).find('span').animateNumbers(Math.floor(100 * Math.random()));
+                }
+            });
+
+            // Generate justGage charts
+
+            var g01 = new JustGage({
+                id: "gauge01",
+                value: 15,
+                min: 0,
+                max: 100,
+                title: "New Users",
+                titleFontColor: "#717171"
+            });
+
+            //            var g02 = new JustGage({
+            //                id: "gauge02",
+            //                value: 30,
+            //                title: "ESTIMATION ",
+            //                min: 0,
+            //                max: 100,
+            //                // gaugeWidthScale: .3,
+            //                titleFontColor: "#717171"
+            //            });
+
+            var g03 = new JustGage({
+                id: "gauge03",
+                value: 92,
+                title: "Animation",
+                min: 0,
+                max: 100,
+                startAnimationType: 'bounce',
+                refreshAnimationType: 'bounce',
+                refreshAnimationTime: 2500,
+                titleFontColor: "#717171"
+            });
+
+            var g04 = new JustGage({
+                id: "gauge04",
+                value: 72,
+                title: "Donut Style",
+                min: 0,
+                max: 100,
+                donut: true,
+                titleFontColor: "#717171"
+            });
+
+            //update instance every 5 sec
+            window.setInterval(function () {
+
+                // refresh easy pie chart
+                charts.each(function () {
+                    $(this).data('easyPieChart').update(Math.floor(100 * Math.random()));
+                });
+
+                // refresh justGage charts
+                g01.refresh(getRandomInt(0, 100));
+                g02.refresh(getRandomInt(0, 100));
+                g03.refresh(getRandomInt(0, 100));
+                g04.refresh(getRandomInt(0, 100));
+
+            }, 5000);
+
+
+
+        })
+      
+    </script>
+</body>
+</html>

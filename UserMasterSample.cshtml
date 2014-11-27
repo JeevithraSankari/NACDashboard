@@ -1,0 +1,561 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>USER MASTER</title>
+    <style type="text/css">
+        .testClassA
+        {
+            text-align: right;
+            width: 75px;
+        }
+        
+        .testClassB
+        {
+            text-align: left;
+            width: 150px;
+        }
+        
+        .testClassC
+        {
+            text-align: right;
+            width: 75px;
+        }
+        .antoHeadingFixed
+        {
+            position: fixed !important;
+            z-index: 1020;
+            top: 60px;
+            padding-right: 0px !important;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/ico" href="../NACContent/images/Logowithoutwhitespace.ico" />
+    <!-- Bootstrap -->
+    <link href="../NACContent/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../NACContent/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+        rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/dataTables.bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/chosen.min.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/chosen-bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/ColVis.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/TableTools.css" type="text/css">
+    <link href="../NACContent/css/minoral.css" rel="stylesheet" type="text/css">
+    <link href="../NACContent/css/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="../NACContent/js/plugins/datetimepicker/css/bootstrap-datetimepicker.css"
+        rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery.js" type="text/javascript"></script>
+    <script src="../NACContent/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"
+        type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/jquery.nicescroll.min.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/blockui/jquery.blockUI.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/ColReorderWithResize.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/colvis/dataTables.ColVis.min.js"
+        type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/tabletools/ZeroClipboard.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/tabletools/dataTables.TableTools.min.js"
+        type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/chosen/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="../NACContent/js/minoral.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/momentjs/moment-with-langs.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/parsley/parsley.min.js"></script>
+</head>
+<body class="brownish-scheme">
+    <!-- Preloader -->
+    <div class="mask">
+        <div id="loader">
+        </div>
+    </div>
+    <!--/Preloader -->
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+        <!-- Make page fluid -->
+        <div class="row">
+            <!-- Fixed navbar -->
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <!-- Branding -->
+                <div class="navbar-header col-md-2">
+                    <a class="navbar-brand" href="#"><strong>NAC</strong> <span class="divider vertical">
+                    </span>Dashboard </a>
+                </div>
+                <!-- Branding end -->
+                <!-- .nav-collapse -->
+                <div class="navbar-collapse">
+                    <!-- Content collapsing at 768px to sidebar -->
+                    <div class="collapsing-content">
+                        <!-- Quick Actions -->
+                        <ul class="nav navbar-nav">
+                            <li class="divided"><a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
+                            </li>
+                        </ul>
+                        <!-- Quick Actions end -->
+                        <!-- User Controls -->
+                        <div class="user-controls">
+                            <ul>
+                                <li class="dropdown messages"><span class="badge badge-red" id="user-new-messages"></span>
+                                    <strong>
+                                        <label id="lblLoggedInby">
+                                        </label>
+                                    </strong>
+                                    <div class="profile-photo">
+                                        <img src="../NACContent/images/profile.jpg" alt />
+                                    </div>
+                                </li>
+                                <li class="dropdown settings"><a class="dropdown-toggle options" data-toggle="dropdown"
+                                    href="#"><i class="fa fa-cog"></i></a>
+                                    <ul class="dropdown-menu arrow">
+                                        <li>
+                                            <h3>
+                                                Color schemes:</h3>
+                                            <ul id="color-schemes">
+                                                <li><a href="#" class="brownish-scheme" title="Brownish"></a></li>
+                                                <li><a href="#" class="darkgrey-scheme" title="Dark Grey"></a></li>
+                                                <li><a href="#" class="lightgrey-scheme" title="Light Grey"></a></li>
+                                                <li><a href="#" class="cyan-scheme" title="Cyan"></a></li>
+                                                <li><a href="#" class="red-scheme" title="Red"></a></li>
+                                                <li><a href="#" class="orange-scheme" title="Orange"></a></li>
+                                                <li><a href="#" class="green-scheme" title="Green"></a></li>
+                                                <li><a href="#" class="amethyst-scheme" title="Amethyst"></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="/DashboardTN"><i class="fa fa-power-off"></i>Logout</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- User Controls end -->
+                    </div>
+                    <!-- /Content collapsing at 768px to sidebar -->
+                    <!-- Sidebar -->
+                    <!-- Sidebar end -->
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- Fixed navbar end -->
+            <!-- Page content -->
+            <div id="content" class="col-md-12 full-page-Anto">
+                <div class="main">
+                    <!-- row -->
+                    <div class="row">
+                        <!-- col 12 -->
+                        <div class="col-md-12 antoHeadingFixed">
+                            <!-- tile -->
+                            <section class="tile">
+                                <!-- tile header -->
+                                <div class="tile-header">
+                                    <h1>
+                                        <strong> User Master</h1> </strong>
+                                </div>
+                                <!-- /tile header -->
+                            </section>
+                            <!-- /tile -->
+                        </div>
+                        <!-- /col 12 -->
+                        <div class="col-md-12" style="padding-top: 100px;">
+                            <!-- tile -->
+                            <section class="tile">
+                                <!-- tile header -->
+                               @* <div class="tile-header transparent">
+                                    <h1>
+                                        <strong>Add New User</strong> 
+                                    </h1>
+                                </div>*@
+                                <!-- /tile header -->
+                                <!-- tile body -->
+                                <div class="tile-body nopadding">
+                                    <div class="table-responsive">
+                                        <a href="#modalConfirm" role="button" class="btn btn-red" data-toggle="modal">Add New User</a>                                      
+                                        <div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="modalConfirmLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                            &times;</button>
+                                                        <h3 class="modal-title thin" id="modalConfirmLabel">
+                                                            Add New User</h3>
+                                                    </div>
+                                                    <div class="tile-body">
+                                                        <form class="form-horizontal" role="form" parsley-validate id="basicvalidations">
+                                                        <div class="form-group">
+                                                            <label for="fullname" class="col-sm-4 control-label">
+                                                                User Name</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="A_txtUserName">
+                                                            </div>
+                                                            @* <input type="text" class="form-control" id="A_txtUserName" />*@
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="email" class="col-sm-4 control-label">
+                                                                Email *</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="email" class="form-control" id="A_txtemail" parsley-trigger="change"
+                                                                    parsley-required="true" parsley-minlength="4" parsley-type="A_txtemail" parsley-validation-minlength="1">
+                                                            </div>
+                                                            @* <input type="password" class="form-control" id="A_txtemail" />*@
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="password" class="col-sm-4 control-label">
+                                                                Password *</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="password" class="form-control" id="A_txtpassword" parsley-trigger="change"
+                                                                    parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1">
+                                                            </div>
+                                                            @*<input type="text" class="form-control" id="A_txtpassword" />*@
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="passwordconfirm" class="col-sm-4 control-label">
+                                                                Retype Password *</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="password" class="form-control" id="A_txtRetypepassword" parsley-trigger="change"
+                                                                    parsley-required="true" parsley-minlength="6" parsley-type="alphanum" parsley-validation-minlength="1"
+                                                                    parsley-equalto="#A_txtpassword">
+                                                            </div>
+                                                            @*<input type="text" class="form-control" id=" A_txtRetypepassword" />*@
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="firstname" class="col-sm-4 control-label">
+                                                                First Name *</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="A_txtFirstName" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="Lastname" class="col-sm-4 control-label">
+                                                                Last Name</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="A_txtLastName" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="Phone" class="col-sm-4 control-label">
+                                                                Phone</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="A_txtphone" parsley-trigger="change"
+                                                                    parsley-required="true" parsley-type="phone" parsley-validation-minlength="0" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="Active" class="col-sm-4 control-label">
+                                                                Mobile</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" class="form-control" id="A_txtphone2" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="Active" class="col-sm-4 control-label">
+                                                                Active</label>
+                                                            <div class="col-sm-8">
+                                                                <div>
+                                                                    <select id="A_txtActive" name="A_Active" class="uniform full_width">
+                                                                        <option id="A_Active">Active</option>
+                                                                        <option id="A_InActive">InActive</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="usertype" class="col-sm-4 control-label">
+                                                                User Type</label>
+                                                            <div class="col-sm-8">
+                                                                <div>
+                                                                    <select id="A_txtUserType" name="A_UserType" class="uniform full_width">
+                                                                        <option id="A_Showroom" value="Showroom">Showroom</option>
+                                                                        <option id="A_Chit" value="Chit">Chit</option>
+                                                                        <option id="A_Billing" value="Billing">Billing</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-red" data-dismiss="modal" aria-hidden="true">
+                                                            Close</button>
+                                                        <button id="AddingUser" class="btn btn-green" >
+                                                            Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table class="table table-datatable table-bordered" id="inlineEditDataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th class="no-sort">
+                                                        ID
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        UserName
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Email
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Phone
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Phone2
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        FirstName
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        LastName
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Active
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        UserTypeName
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Actions
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- /tile body -->
+                            </section>
+                        </div>
+                        <!-- /tile body -->
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /content container -->
+        </div>
+        <!-- Page content end -->
+    </div>
+    <!-- Make page fluid-->
+    <!-- Wrap all page content end -->
+    <script type="text/javascript">
+        $(function () {
+            var oTable02;
+            createChart();
+
+            function restoreRow(oTable02, nRow) {
+                var aData = oTable02.fnGetData(nRow);
+                var jqTds = $('>td', nRow);
+
+                for (var i = 0, iLen = jqTds.length; i < iLen; i++) {
+                    oTable02.fnUpdate(aData[i], nRow, i, false);
+                }
+
+                oTable02.fnDraw();
+            };
+
+            function editRow(oTable02, nRow) {
+                var aData = oTable02.fnGetData(nRow);
+                var id = aData.ID;
+                var username = aData.UserName;
+                var Email = aData.Email;
+                var Phone = aData.Phone;
+                var Phone2 = aData.Phone2;
+                var FirstName = aData.FirstName;
+                var LastName = aData.LastName;
+                var Active = aData.ACTIVE;
+                var UserTypeName = aData.UserTypeName;
+                var jqTds = $('>td', nRow);
+                jqTds[0].innerHTML = '<input type="text" value="' + id + '">';
+                jqTds[1].innerHTML = '<input type="text" value="' + username + '">';
+                jqTds[2].innerHTML = '<input type="text" value="' + Email + '">';
+                jqTds[3].innerHTML = '<input type="text" value="' + Phone + '">';
+                jqTds[4].innerHTML = '<input type="text" value="' + Phone2 + '">';
+                jqTds[5].innerHTML = '<input type="text" value="' + FirstName + '">';
+                jqTds[6].innerHTML = '<input type="text" value="' + LastName + '">';
+                jqTds[7].innerHTML = '<input type="text" value="' + Active + '">';
+                jqTds[8].innerHTML = '<input type="text" value="' + UserTypeName + '">';
+                jqTds[9].innerHTML = '<a class="edit save" href="#">  Save</a><a class="delete" href="#">  Delete</a>';
+            };
+
+            function saveRow(oTable02, nRow) {
+                var jqInputs = $('input', nRow);
+                var jqSelect = $('select', nRow);
+                oTable02.fnUpdate(jqInputs[0].value, nRow, 0, false);
+                oTable02.fnUpdate(jqInputs[1].value, nRow, 1, false);
+                oTable02.fnUpdate(jqInputs[2].value, nRow, 2, false);
+                oTable02.fnUpdate(jqInputs[3].value, nRow, 3, false);
+                oTable02.fnUpdate(jqInputs[4].value, nRow, 4, false);
+                oTable02.fnUpdate(jqInputs[5].value, nRow, 5, false);
+                oTable02.fnUpdate(jqInputs[6].value, nRow, 6, false);
+                oTable02.fnUpdate(jqInputs[7].value, nRow, 7, false);
+                oTable02.fnUpdate(jqInputs[8].value, nRow, 8, false);
+                oTable02.fnUpdate('<a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a>', nRow, 9, false);
+                oTable02.fnDraw();
+
+                var aData = oTable02.fnGetData(nRow);
+                var id = aData.ID;
+                var UN = aData.UserName;
+                var em = aData.Email;
+                var Pho = aData.Phone;
+                var Pho2 = aData.Phone2;
+                var FN = aData.FirstName;
+                var LN = aData.LastName;
+                var act = aData.ACTIVE;
+                var UTY = aData.UserTypeName;
+
+                $.ajax({
+                    type: "POST",
+                    url: "SampleEditUser",
+                    data: { 'Username': UN, 'Email': em, 'FName': FN, 'LName': LN, 'Phone': Pho, 'Phone2': Pho2, 'Active': act, 'UserType': UTY },
+                    dataType: "json",
+                    success: function (data) {
+                        if (data == 1) {
+                            alert('User Edited Successfully');
+                            createChart();
+                        }
+                        else {
+                            alert('Some Internal problem occured');
+                        }
+                    }
+                });
+            };
+
+            function createChart() {
+                oTable02 = $('#inlineEditDataTable').dataTable({
+                    "aoColumnDefs": [{ 'bSortable': false, 'aTargets': ["no-sort"]}],
+                    "bProcessing": true,
+                    "async": false,
+                    "bDestroy": true,
+                    "aoColumns": [
+                    { "mDataProp": "ID", "sClass": "testClassA" },
+                    { "mDataProp": "UserName", "sClass": "testClassA" },
+                    { "mDataProp": "Email", "sClass": "testClassA" },
+                    { "mDataProp": "Phone", "sClass": "testClassB" },
+                    { "mDataProp": "Phone2", "sClass": "testClassB" },
+                    { "mDataProp": "FirstName", "sClass": "testClassA" },
+                    { "mDataProp": "LastName", "sClass": "testClassA" },
+                    { "mDataProp": "ACTIVE", "sClass": "testClassA" },
+                    { "mDataProp": "UserTypeName", "sClass": "testClassA" },
+                    { "mDataProp": null, "sClass": "actions text-center", "sDefaultContent": '<a class="edit" href="#"><i class="fa fa-plus-square"></i>  EDIT</a><a class="delete" href="#"><i class="fa fa-plus-square"></i>  DELETE</a>'}],
+                    "sAjaxSource": "UserDetails"
+                });
+            }
+
+//            function Add_OK_Click() {               
+//                    checkAuthentication();                  
+
+//            }
+            $("#AddingUser").click(function () {
+                console.log('check authentication');
+
+                var UN = $('#A_txtUserName').val();
+                var em = $('#A_txtemail').val();
+                var Pas = $('#A_txtRetypepassword').val();
+                var FN = $('#A_txtFirstName').val();
+                var LN = $('#A_txtLastName').val();
+                var Pho = $('#A_txtphone').val();
+                var Pho2 = $('#A_txtphone2').val();
+                var act = $('#A_txtActive').val();
+                var UTY = $('#A_txtUserType').val();
+                $.ajax(
+			    {
+			        type: "POST",
+			        url: "SampleAddNewUser",
+			        data: { 'Username': UN, 'Email': em, 'Pass': Pas, 'FName': FN, 'LName': LN, 'Phone': Pho, 'Phone2': Pho2, 'Active': act, 'UserType': UTY },
+			        dataType: "json",
+			        success: function (data) {
+			            if (data == 1) {
+			                alert('User inserted Successfully');
+			                createChart();
+			            }
+			            else { alert('Some Internal problem occured'); }
+			        }
+			    });
+            });
+
+            // Append add row button to table
+//            var addRowLink = '<a href="#" id="addRow" class="btn btn-green btn-xs add-row">Add New User</a>'
+//            $('#inlineEditDataTable_wrapper').append(addRowLink);
+
+            var nEditing = null;
+
+            // Add row initialize
+//            $('#addRow').click(function (e) {
+//                e.preventDefault();
+
+//                // Only allow a new row when not currently editing
+//                if (nEditing !== null) {
+//                    return;
+//                }
+//                var ai = oTable02.fnGetData(nRow);
+//                var aiNew = oTable02.fnAddData(['', '', '', '', '', '', '', '', '', '<a class="edit" href="">Edit</a>', '<a class="delete" href="">Delete</a>']);
+//                var nRow = oTable02.fnGetNodes(aiNew[0]);
+//                editRow(oTable02, nRow);
+//                nEditing = nRow;
+
+//                $(nRow).find('td:last-child').addClass('actions text-center');
+//            });
+
+            // Delete row initialize
+            $(document).on("click", "#inlineEditDataTable a.delete", function (e) {
+                e.preventDefault();
+                var nRow = $(this).parents('tr')[0];
+                // oTable02.fnDeleteRow(nRow);
+                var oData = oTable02.fnGetData(nRow);
+                var id = oData.ID;
+                console.log('id :' + id);
+                $.ajax({
+                    type: "POST",
+                    url: "UserDelete",
+                    data: { 'Id': id },
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        if (data == 1) {
+                            alert("Successfully Deleted");
+                            createChart();
+                        }
+                        else {
+                            alert("Some Problem Occured!!!");
+                        }
+                    }
+                });
+            });
+
+            // Edit row initialize
+            $(document).on("click", "#inlineEditDataTable a.edit", function (e) {
+                e.preventDefault();
+
+                /* Get the row as a parent of the link that was clicked on */
+                var nRow = $(this).parents('tr')[0];
+                var oData = oTable02.fnGetData(nRow);
+                var id = oData.ID;
+                console.log('id :' + id);
+
+                if (nEditing !== null && nEditing != nRow) {
+                    /* A different row is being edited - the edit should be cancelled and this row edited */
+                    restoreRow(oTable02, nEditing);
+                    editRow(oTable02, nRow);
+                    nEditing = nRow;
+                }
+                else if (nEditing == nRow && this.innerHTML == "  Save") {
+                    /* This row is being edited and should be saved */
+                    saveRow(oTable02, nEditing);
+                    nEditing = null;
+                }
+                else {
+                    /* No row currently being edited */
+                    editRow(oTable02, nRow);
+                    nEditing = nRow;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>USER MASTER</title>
+    <style type="text/css">
+        .testClassA
+        {
+            text-align: left;
+            width: 100px;
+        }
+        
+        .testClassB
+        {
+            text-align: right;
+            width: 100px;
+        }
+        
+        .antoHeadingFixed
+        {
+            position: fixed !important;
+            z-index: 1020;
+            top: 60px;
+            padding-right: 0px !important;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/ico" href="../NACContent/images/Logowithoutwhitespace.ico" />
+    <!-- Bootstrap -->
+    <link href="../NACContent/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../NACContent/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+        rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/dataTables.bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/chosen.min.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/chosen-bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/ColVis.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/TableTools.css" type="text/css">
+    <link href="../NACContent/css/minoral.css" rel="stylesheet" type="text/css">
+    <link href="../NACContent/css/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="../NACContent/js/plugins/datetimepicker/css/bootstrap-datetimepicker.css"
+        rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery.js" type="text/javascript"></script>
+    <script src="../NACContent/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"
+        type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/jquery.nicescroll.min.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/blockui/jquery.blockUI.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/ColReorderWithResize.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/colvis/dataTables.ColVis.min.js"
+        type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/tabletools/ZeroClipboard.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/tabletools/dataTables.TableTools.min.js"
+        type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/chosen/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="../NACContent/js/minoral.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/momentjs/moment-with-langs.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+</head>
+<body class="brownish-scheme">
+    <div class="mask">
+        <div id="loader">
+        </div>
+    </div>
+    <div id="wrap">
+        <div class="row">
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="navbar-header col-md-2">
+                    <a class="navbar-brand" href="#"><strong>NAC</strong> <span class="divider vertical">
+                    </span>Dashboard </a>
+                </div>
+                <div class="navbar-collapse">
+                    <div class="collapsing-content">
+                        <ul class="nav navbar-nav">
+                            <li class="divided"><a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
+                            </li>
+                        </ul>
+                        <div class="user-controls">
+                            <ul>
+                                <li class="dropdown messages"><span class="badge badge-red" id="user-new-messages"></span>
+                                    <strong>
+                                        <label id="lblLoggedInby">
+                                        </label>
+                                    </strong>
+                                    <div class="profile-photo">
+                                        <img src="../NACContent/images/profile.jpg" alt />
+                                    </div>
+                                </li>
+                                <li class="dropdown settings"><a class="dropdown-toggle options" data-toggle="dropdown"
+                                    href="#"><i class="fa fa-cog"></i></a>
+                                    <ul class="dropdown-menu arrow">
+                                        <li>
+                                            <h3>
+                                                Color schemes:</h3>
+                                            <ul id="color-schemes">
+                                                <li><a href="#" class="brownish-scheme" title="Brownish"></a></li>
+                                                <li><a href="#" class="darkgrey-scheme" title="Dark Grey"></a></li>
+                                                <li><a href="#" class="lightgrey-scheme" title="Light Grey"></a></li>
+                                                <li><a href="#" class="cyan-scheme" title="Cyan"></a></li>
+                                                <li><a href="#" class="red-scheme" title="Red"></a></li>
+                                                <li><a href="#" class="orange-scheme" title="Orange"></a></li>
+                                                <li><a href="#" class="green-scheme" title="Green"></a></li>
+                                                <li><a href="#" class="amethyst-scheme" title="Amethyst"></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="/DashboardTN"><i class="fa fa-power-off"></i>Logout</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content" class="col-md-12 full-page-Anto">
+                <div class="main">
+                    <div class="row">
+                        <div class="col-md-12 antoHeadingFixed">
+                            <section class="tile">
+                                <div class="tile-header">
+                                    <h1>
+                                        USER MASTER</h1>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-md-12" style="padding-top: 100px;">
+                            <section class="tile">
+                                <div class="tile-body nopadding">
+                                    <div class="table-responsive">
+                                    <div>
+                                    <input id="addRow" value="Add New User" class="btn btn-green btn-xs add-row" />
+                                    </div>
+                                    <div>
+                                        <table class="table table-datatable table-bordered" id="TBLUsers">
+                                            <thead>
+                                                <tr>
+                                                    <th class="no-sort">
+                                                        ID
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        UserName
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Email
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Phone
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Phone2
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        FirstName
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        LastName
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Active
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        UserTypeName
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        Actions
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+
+            function restoreRow(oTable, nRow) {
+                var aData = oTable.fnGetData(nRow);
+                var jqTds = $('>td', nRow);
+
+                for (var i = 0, iLen = jqTds.length; i < iLen; i++) {
+                    oTable.fnUpdate(aData[i], nRow, i, false);
+                }
+
+                oTable.fnDraw();
+            };
+
+            function editRow(oTable, nRow) {
+                var aData = oTable.fnGetData(nRow);
+                var jqTds = $('>td', nRow);
+                jqTds[0].innerHTML = '<input type="text" value="' + aData[0] + '">';
+                jqTds[1].innerHTML = '<input type="text" value="' + aData[1] + '">';
+                jqTds[2].innerHTML = '<input type="text" value="' + aData[2] + '">';
+                jqTds[3].innerHTML = '<input type="text" value="' + aData[3] + '">';
+                jqTds[4].innerHTML = '<input type="text" value="' + aData[4] + '">';
+                jqTds[5].innerHTML = '<input type="text" value="' + aData[5] + '">';
+                jqTds[6].innerHTML = '<input type="text" value="' + aData[6] + '">';
+                jqTds[7].innerHTML = '<input type="text" value="' + aData[7] + '">';
+                jqTds[8].innerHTML = '<input type="text" value="' + aData[8] + '">';
+                jqTds[9].innerHTML = '<a class="edit save" href="#">Save</a><a class="delete" href="#">Delete</a>';
+            };
+
+            function saveRow(oTable, nRow) {
+                var jqInputs = $('input', nRow);
+                oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
+                oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
+                oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
+                oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
+                oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
+                oTable.fnUpdate(jqInputs[5].value, nRow, 5, false);
+                oTable.fnUpdate(jqInputs[6].value, nRow, 6, false);
+                oTable.fnUpdate(jqInputs[7].value, nRow, 7, false);
+                oTable.fnUpdate(jqInputs[8].value, nRow, 8, false);
+                oTable.fnUpdate('<a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a>', nRow, 9, false);
+                oTable.fnDraw();
+            };
+
+            var oTable = $('#TBLUsers').dataTable
+                ({
+                    "aoColumnDefs": [{ 'bSortable': false, 'aTargets': ["no-sort"]}],
+                    "bProcessing": true,
+                    "async": false,
+                    "bDestroy": true,
+                    "aoColumns": [
+                      { "mDataProp": "ID", "sClass": "testClassA" },
+                      { "mDataProp": "UserName", "sClass": "testClassA" },
+                      { "mDataProp": "Email", "sClass": "testClassA" },
+                      { "mDataProp": "Phone", "sClass": "testClassB" },
+                      { "mDataProp": "Phone2", "sClass": "testClassB" },
+                      { "mDataProp": "FirstName", "sClass": "testClassA" },
+                      { "mDataProp": "LastName", "sClass": "testClassA" },
+                      { "mDataProp": "ACTIVE", "sClass": "testClassA" },
+                      { "mDataProp": "UserTypeName", "sClass": "testClassA" },
+                      { "mDataProp": null, "sClass": "actions text-center", "sDefaultContent": '<a class="edit" href="#">  EDIT</a><a class="delete" href="#">  DELETE</a>'}],
+                    "sAjaxSource": "Home/UserDetails"
+                });
+
+            //            // Append add row button to table
+            //            var addRowLink = '&lt;a href="#" id="addRow" class="btn btn-green btn-xs add-row"&gt;Add row&lt;/a&gt;'
+            //            $('#inlineEditDataTable_wrapper').append(addRowLink);
+            var nEditing = null;
+
+            // Add row initialize
+            $('#addRow').click(function (e) {
+                e.preventDefault();
+
+                // Only allow a new row when not currently editing
+                if (nEditing !== null) {
+                    return;
+                }
+
+                var aiNew = oTable.fnAddData(['', '', '', '', '', '', '', '', '', '<a class="edit" href="">Edit</a>', '<a class="delete" href="">Delete</a>']);
+                var nRow = oTable.fnGetNodes(aiNew[0]);
+                editRow(oTable, nRow);
+                nEditing = nRow;
+
+                $(nRow).find('td:last-child').addClass('actions text-center');
+            });
+
+            // Delete row initialize
+            $(document).on("click", "#TBLUsers a.delete", function (e) {
+                e.preventDefault();
+                var nRow = $(this).parents('tr')[0];
+                oTable.fnDeleteRow(nRow);
+            });
+
+            // Edit row initialize
+            $(document).on("click", "#inlineEditDataTable a.edit", function (e) {
+                e.preventDefault();
+
+                /* Get the row as a parent of the link that was clicked on */
+                var nRow = $(this).parents('tr')[0];
+
+                if (nEditing !== null && nEditing != nRow) {
+                    /* A different row is being edited - the edit should be cancelled and this row edited */
+                    restoreRow(oTable, nEditing);
+                    editRow(oTable, nRow);
+                    nEditing = nRow;
+                }
+                else if (nEditing == nRow && this.innerHTML == "Save") {
+                    /* This row is being edited and should be saved */
+                    saveRow(oTable, nEditing);
+                    nEditing = null;
+                }
+                else {
+                    /* No row currently being edited */
+                    editRow(oTable, nRow);
+                    nEditing = nRow;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

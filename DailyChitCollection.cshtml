@@ -1,0 +1,437 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Chit Collection</title>
+    <style type="text/css">
+        .testClassA
+        {
+            text-align: right;
+            width: 75px;
+        }
+        
+        .testClassB
+        {
+            text-align: left;
+            width: 150px;
+        }        
+         .antoHeadingFixed
+        {
+        	position:fixed !important;
+        	z-index:1020;
+        	top:60px;
+        	padding-right:0px !important;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+   <link rel="icon" type="image/ico" href="../NACContent/images/Logowithoutwhitespace.ico" />
+    <!-- Bootstrap -->
+    <link href="../NACContent/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../NACContent/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+        rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/dataTables.bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/chosen.min.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/chosen-bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/ColVis.css" type="text/css">
+    <link rel="stylesheet" href="../NACContent/css/TableTools.css" type="text/css">
+    <link href="../NACContent/css/minoral.css" rel="stylesheet" type="text/css">
+    <link href="../NACContent/css/datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="../NACContent/js/plugins/datetimepicker/css/bootstrap-datetimepicker.css"
+        rel="stylesheet" type="text/css" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js" type="text/javascript"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../NACContent/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"
+        type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/jquery.nicescroll.min.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/blockui/jquery.blockUI.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/ColReorderWithResize.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/colvis/dataTables.ColVis.min.js"
+        type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/tabletools/ZeroClipboard.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/tabletools/dataTables.TableTools.min.js"
+        type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="../NACContent/js/plugins/chosen/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="../NACContent/js/minoral.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/momentjs/moment-with-langs.min.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+</head>
+<body class="brownish-scheme">
+    <!-- Preloader -->
+    <div class="mask">
+        <div id="loader">
+        </div>
+    </div>
+    <!--/Preloader -->
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+        <!-- Make page fluid -->
+        <div class="row">
+            <!-- Fixed navbar -->
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <!-- Branding -->
+                <div class="navbar-header col-md-2">
+                    <a class="navbar-brand" href="#"><strong>NAC</strong> <span class="divider vertical">
+                    </span>Dashboard </a>
+                </div>
+                <!-- Branding end -->
+                <!-- .nav-collapse -->
+                <div class="navbar-collapse">
+                    <!-- Content collapsing at 768px to sidebar -->
+                    <div class="collapsing-content">
+                        <!-- Quick Actions -->
+                        <ul class="nav navbar-nav">
+                            <li class="divided"><a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
+                                @*<span class="divider vertical"></span>*@</li>
+                            @* <li class="dropdown quick-action tasks"><a class="dropdown-toggle button" data-toggle="dropdown"
+                                href="#"><i class="fa fa-tasks"></i><span class="overlay-label green">5</span> </a>
+                                <ul class="dropdown-menu wide arrow green nopadding">
+                                    <li>
+                                        <h1>
+                                            You have <strong>5</strong> new tasks</h1>
+                                    </li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                Layout</div>
+                                            <div class="percent">
+                                                80%</div>
+                                        </div>
+                                        <div class="progress progress-striped progress-thin">
+                                            <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="40"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                <span class="sr-only">40% Complete (success)</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                Schemes</div>
+                                            <div class="percent">
+                                                15%</div>
+                                        </div>
+                                        <div class="progress progress-striped active progress-thin">
+                                            <div class="progress-bar progress-bar-cyan" role="progressbar" aria-valuenow="45"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+                                                <span class="sr-only">45% Complete</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                Forms</div>
+                                            <div class="percent">
+                                                5%</div>
+                                        </div>
+                                        <div class="progress progress-striped progress-thin">
+                                            <div class="progress-bar progress-bar-orange" role="progressbar" aria-valuenow="45"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 5%">
+                                                <span class="sr-only">5% Complete (warning)</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                JavaScript</div>
+                                            <div class="percent">
+                                                30%</div>
+                                        </div>
+                                        <div class="progress progress-striped progress-thin">
+                                            <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="45"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                                                <span class="sr-only">30% Complete (danger)</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                Dropdowns</div>
+                                            <div class="percent">
+                                                60%</div>
+                                        </div>
+                                        <div class="progress progress-striped progress-thin">
+                                            <div class="progress-bar progress-bar-amethyst" role="progressbar" aria-valuenow="45"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">Check all tasks <i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown quick-action notifications"><a class="dropdown-toggle button"
+                                data-toggle="dropdown" href="#"><i class="fa fa-bell"></i><span class="overlay-label orange">
+                                    12</span> </a>
+                                <ul class="dropdown-menu wide arrow orange nopadding">
+                                    <li>
+                                        <h1>
+                                            You have <strong>12</strong> new notifications</h1>
+                                    </li>
+                                    <li><a href="#"><span class="label label-green"><i class="fa fa-user"></i></span>New
+                                        user registered. <span class="small">18 mins</span> </a></li>
+                                    <li><a href="#"><span class="label label-red"><i class="fa fa-power-off"></i></span>
+                                        Server down. <span class="small">27 mins</span> </a></li>
+                                    <li><a href="#"><span class="label label-orange"><i class="fa fa-plus"></i></span>New
+                                        order. <span class="small">36 mins</span> </a></li>
+                                    <li><a href="#"><span class="label label-cyan"><i class="fa fa-power-off"></i></span>
+                                        Server restared. <span class="small">45 mins</span> </a></li>
+                                    <li><a href="#"><span class="label label-amethyst"><i class="fa fa-power-off"></i></span>
+                                        Server started. <span class="small">50 mins</span> </a></li>
+                                    <li><a href="#">Check all notifications <i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                            </li>*@
+                        </ul>
+                        <!-- Quick Actions end -->
+                        <!-- Search -->
+                        @*<div class="search">
+                <input type="text" placeholder="&#61442; Search in charts &amp; graphs...">
+              </div>*@
+                        <!-- Search end -->
+                        <!-- User Controls -->
+                        <div class="user-controls">
+                            <ul>
+                                <li class="dropdown messages">@* <a class="dropdown-toggle" data-toggle="dropdown" href="#">*@
+                                    <span class="badge badge-red" id="user-new-messages"></span><strong>
+                                        <label id="lblLoggedInby">
+                                        </label>
+                                    </strong>@* <span class="badge badge-red" id="user-new-messages"></span>Anto <strong>Vasanth</strong>*@
+                                    @* </a>*@
+                                    <div class="profile-photo">
+                                        <img src="../NACContent/images/profile.jpg" alt />
+                                    </div>
+                                </li>
+                                <li class="dropdown settings"><a class="dropdown-toggle options" data-toggle="dropdown"
+                                    href="#"><i class="fa fa-cog"></i></a>
+                                    <ul class="dropdown-menu arrow">
+                                        <li>
+                                            <h3>
+                                                Color schemes:</h3>
+                                            <ul id="color-schemes">
+                                                <li><a href="#" class="brownish-scheme" title="Brownish"></a></li>
+                                                <li><a href="#" class="darkgrey-scheme" title="Dark Grey"></a></li>
+                                                <li><a href="#" class="lightgrey-scheme" title="Light Grey"></a></li>
+                                                <li><a href="#" class="cyan-scheme" title="Cyan"></a></li>
+                                                <li><a href="#" class="red-scheme" title="Red"></a></li>
+                                                <li><a href="#" class="orange-scheme" title="Orange"></a></li>
+                                                <li><a href="#" class="green-scheme" title="Green"></a></li>
+                                                <li><a href="#" class="amethyst-scheme" title="Amethyst"></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="/DashboardML"><i class="fa fa-power-off"></i>Logout</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- User Controls end -->
+                    </div>
+                    <!-- /Content collapsing at 768px to sidebar -->
+                    <!-- Sidebar -->
+                    <!-- Sidebar end -->
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- Fixed navbar end -->
+            <!-- Page content -->
+            <div id="content" class="col-md-12 full-page-Anto">
+                <div class="main">
+                    <!-- row -->
+                    <div class="row">
+                        <!-- col 12 -->
+                        <div class="col-md-12 antoHeadingFixed">
+                            <!-- tile -->
+                            <section class="tile">
+                                <!-- tile header -->
+                                <div class="tile-header">
+                                    <h1>
+                                        Daily Chit Collection</h1>
+                                    <div class="controls">
+                                        <button id="btnChart" type="button" class="btn btn-cyan margin-bottom-20">
+                                            Report</button>
+                                        <button id="btnTable" type="button" class="btn btn-cyan margin-bottom-20">
+                                            Table</button>
+                                    </div>
+                                </div>
+                                <!-- /tile header -->
+                            </section>
+                            <!-- /tile -->
+                        </div>
+                        <!-- /col 12 -->
+                        <div class="col-md-12">
+                            <!-- tile -->
+                            <section class="tile">
+                                <!-- tile widget -->
+                                <div class="tile-widget nopadding">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs">
+                                         <li class="active"><a href="@Url.Action("DailyChitCollection", "Home")">NEW</a></li>
+                                        <li ><a href="@Url.Action("ExistingChitCollection", "Home")">EXISTING</a></li>
+                                        <li><a href="@Url.Action("OnlineChitCollection", "Home")">ONLINE</a></li>
+                                    </ul>
+                                </div>
+                                <!-- / Nav tabs -->
+                                <!-- /tile widget -->
+                                <!-- tile body -->
+                                <div class="tile-body nopadding">
+                                    <div class="table-responsive">
+                                        <table class="table table-datatable table-bordered" id="DailyChitCollectionDataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th class="no-sort">
+                                                        CUSTOMER
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        PERSONAL ID
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        GROUP CODE
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        SCHEME
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        JOINed ON
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        REG NO
+                                                    </th>
+                                                    <th class="no-sort">
+                                                        AMOUNT
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th align="center" style="font-weight: bolder; font-size: small; color: Maroon;">
+                                                    </th>
+                                                    <th align="center" style="font-weight: bolder; font-size: small; color: Maroon;">
+                                                    </th>
+                                                    <th align="center" style="font-weight: bolder; font-size: small; color: Maroon;">
+                                                    </th>
+                                                    <th align="center" style="font-weight: bolder; font-size: small; color: Maroon;">
+                                                    </th>
+                                                    <th align="center" style="font-weight: bolder; font-size: small; color: Maroon;">
+                                                    </th>
+                                                    <th align="center" style="font-weight: bolder; font-size: small; color: Maroon;">
+                                                    </th>
+                                                    <th align="center" style="font-weight: bolder; font-size: small; color: Maroon;">
+                                                    </th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- /tile body -->
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /content container -->
+        </div>
+        <!-- Page content end -->
+    </div>
+    <!-- Make page fluid-->
+    <!-- Wrap all page content end -->
+    <script type="text/javascript">
+        $(function () {
+            //For Redirecting to  Dashboard Table - Start
+            $('#btnChart').click(function () {
+                window.location = ("/Home/DashboardChitRpt");
+
+            });
+            //For Redirecting to  Dashboard Table - End 
+            //For Redirecting to  Dashboard Table - Start
+            $('#btnTable').click(function () {
+                window.location = ("/Home/DashboardChitTable");
+
+            });
+
+            //To get the Name of the Logged in Person - Start
+
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "GetUserName",
+                 dataType: "text",
+                 success: function (dataaaa) {
+                     console.log('USERNAME : ' + dataaaa);
+                     $('#lblLoggedInby').html(dataaaa);
+                 }
+             });
+
+            //To get the Name of the Logged in Person - End
+
+
+            var oTable = $('#DailyChitCollectionDataTable').dataTable({
+                "aoColumnDefs": [{ 'bSortable': false, 'aTargets': ["no-sort"]}],
+                "bProcessing": true,
+                "async": false,
+                "bDestroy": true,
+                "aoColumns": [
+                      { "mDataProp": "PNAME", "sClass": "testClassB" },
+                      { "mDataProp": "PERSONALID", "sClass": "testClassA" },
+                      { "mDataProp": "GROUPCODE", "sClass": "testClassA" },
+                      { "mDataProp": "SCHEMENAME", "sClass": "testClassA" },
+                      { "mDataProp": "JOINDATE", "sClass": "testClassA" },
+                      { "mDataProp": "REGNO", "sClass": "testClassA" },
+                      { "mDataProp": "AMOUNT", "sClass": "testClassA" }
+                       ],
+                "sAjaxSource": "ChitDailyCollections",
+                "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {                    
+                    var AMOUNT = 0;
+
+                    for (var i = 0; i < aaData.length; i++) {
+
+                        if (!aaData[i]["AMOUNT"]) {
+
+                            AMOUNT += parseFloat(0);
+                        }
+                        else {
+
+                            AMOUNT += parseFloat(aaData[i]["AMOUNT"]);
+                        }
+                    }
+
+                    var nCells = nRow.getElementsByTagName('th');
+                    nCells[0].innerHTML = 'Total :';
+                    nCells[1].innerHTML = '';
+                    nCells[2].innerHTML = '';
+                    nCells[3].innerHTML = '';
+                    nCells[4].innerHTML = '';
+                    nCells[5].innerHTML = '';
+                    nCells[6].innerHTML = addCommas(AMOUNT.toFixed(2));
+                }
+            });
+            function addCommas(nStr) {
+                nStr += '';
+                x = nStr.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+                return x1 + x2;
+            }
+
+        });
+    </script>
+</body>
+</html>

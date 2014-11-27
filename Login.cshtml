@@ -1,0 +1,186 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NAC - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/ico" href="../NACContent/images/Logowithoutwhitespace.ico" />
+    <!-- Bootstrap -->
+    <link href="../NACContent/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../NACContent/css/animate.min.css">
+    <link rel="stylesheet" href="../NACContent/css/bootstrap-checkbox.css">
+
+    <link href="../NACContent/css/minoral.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="brownish-scheme">
+
+    <!-- Preloader -->
+    <div class="mask"><div id="loader"></div></div>
+    <!--/Preloader -->
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      
+
+
+      <!-- Make page fluid -->
+      <div class="row">         
+        
+
+
+
+
+        
+        <!-- Page content -->
+        <div id="content" class="col-md-12 full-page login">
+
+
+          <div class="welcome">
+           @* <img src="../NACContent/images/nac-jewellers.png" alt class="logo">*@
+            <img src="../NACContent/images/Logo.Jpeg" alt class="logo" width="65%" height="65%">
+            <h1><strong>Welcome</strong> to NAC</h1>
+            <h5>Please Fill Your Credentials</h5>
+
+            <form id="form-signin" class="form-signin">
+              <section>
+                <div class="input-group">
+                  <input type="text" class="form-control" name="username" placeholder="Username" id="Usernametxt">
+                  <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                </div>
+                <div class="input-group">
+                  <input type="password" class="form-control" name="password" placeholder="Password" id="Passwordtxt">
+                  <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                </div>
+              </section>
+              @*<section class="controls">
+                <div class="checkbox check-transparent">
+                  <input type="checkbox" value="1" id="remember" checked>
+                  <label for="remember">Remember me</label>
+                </div>
+                <a href="#" class="pull-right">Forget password?</a>
+              </section>*@
+              <section class="new-acc">
+                @*<button class="btn btn-greensea">Create an account</button>*@<br />
+                <div id="diverror">
+                <div class="alert alert-danger alert-dismissable fade in">
+                      <button id="btnclose" type="button" class="close">&times;</button>
+                      <strong>Warning!</strong> Invalid Username and Password!
+                    </div></div>
+              </section>
+            </form>
+          </div>
+          
+
+          
+          <a href="#" id="loginbtn" class="log-in">Log In<i class="fa fa-arrow-right fa-5x"></i></a>
+
+
+
+        </div>
+        <!-- Page content end -->
+
+
+
+
+
+
+      </div>
+      <!-- Make page fluid-->
+
+
+
+
+    </div>
+    <!-- Wrap all page content end -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../NACContent/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>
+    <script src="../NACContent/js/plugins/jquery.nicescroll.min.js"></script>
+    <script src="../NACContent/js/plugins/blockui/jquery.blockUI.js"></script>
+
+
+    <script src="../NACContent/js/minoral.min.js"></script>
+
+    <script>
+        $(function () {
+
+            $('.welcome').addClass('animated bounceIn');
+
+        })
+
+        $(document).keypress(function (event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+                //alert('You pressed a "enter" key in somewhere');
+
+                $('#loginbtn').trigger('click');
+            }
+        });
+
+        $(document).ready(function () {
+
+            $("#diverror").hide();
+            $("#loginbtn").click(function () {
+
+                //alert("Working");
+                var UN = $("#Usernametxt").val();
+                var pass = $("#Passwordtxt").val();
+                console.log(UN + ' ' + pass);
+                if (UN == '' || pass == '') {
+                    $("#diverror").show();
+                }
+                else {
+
+                    $.ajax
+             ({
+                 type: "POST",
+                 url: "Home/loginscreen?UN=" + UN + "&PASS=" + pass,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     console.log('dataaaa.aaDataUserType : ' + dataaaa.aaDataUserType);
+                     if (dataaaa.aaDataUserType == "6") {
+                         window.location = ("/Home/Dashboard");
+                     }                    
+                     else if (dataaaa.aaDataUserType == "11") {
+                         window.location = ("/Home/DashboardChitRpt");
+                     }
+                     else if (dataaaa.aaDataUserType == "12") {
+                         window.location = ("/Home/BillingDashboardTable");
+                     }
+                     else {
+                         $("#diverror").show();
+                     }
+                 }
+             });
+
+                }
+
+            });
+
+            $("#btnclose").click(function () {
+                $("#diverror").hide();
+            });
+
+
+
+        });
+      
+    </script>
+  </body>
+</html>

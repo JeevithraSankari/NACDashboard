@@ -1,0 +1,1899 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/ico" href="../NACContent/images/Logowithoutwhitespace.ico" />
+    <!-- Bootstrap -->
+    <link href="../NACContent/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../NACContent/css/animate.min.css">
+    <link href="../NACContent/css/minoral.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    .antoHeadingFixed
+        {
+        	position:fixed !important;
+        	z-index:1020;
+        	top:60px;
+        	padding-right:0px !important;
+        }
+    </style>
+</head>
+<body class="brownish-scheme">
+    <!-- Preloader -->
+    <div class="mask">
+        <div id="loader">
+        </div>
+    </div>
+    <!--/Preloader -->
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+        <!-- Make page fluid -->
+        <div class="row">
+            <!-- Fixed navbar -->
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <!-- Branding -->
+                <div class="navbar-header col-md-2">
+                    <a class="navbar-brand" href="#"><strong>NAC</strong> <span class="divider vertical">
+                    </span>Dashboard </a>
+                </div>
+                <!-- Branding end -->
+                <!-- .nav-collapse -->
+                <div class="navbar-collapse">
+                    <!-- Content collapsing at 768px to sidebar -->
+                    <div class="collapsing-content">
+                        <!-- Quick Actions Start-->
+                        <ul class="nav navbar-nav">
+                            <li class="divided"><a href="#" class="page-refresh"><i class="fa fa-refresh"></i></a>
+                                @*<span class="divider vertical"></span>*@</li>
+                            @*<li class="dropdown quick-action tasks"><a class="dropdown-toggle button" data-toggle="dropdown"
+                                href="#"><i class="fa fa-tasks"></i><span class="overlay-label green">5</span> </a>
+                                <ul class="dropdown-menu wide arrow green nopadding">
+                                    <li>
+                                        <h1>
+                                            You have <strong>5</strong> new tasks</h1>
+                                    </li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                Layout</div>
+                                            <div class="percent">
+                                                80%</div>
+                                        </div>
+                                        <div class="progress progress-striped progress-thin">
+                                            <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="40"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                                <span class="sr-only">40% Complete (success)</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                Schemes</div>
+                                            <div class="percent">
+                                                15%</div>
+                                        </div>
+                                        <div class="progress progress-striped active progress-thin">
+                                            <div class="progress-bar progress-bar-cyan" role="progressbar" aria-valuenow="45"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+                                                <span class="sr-only">45% Complete</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                Forms</div>
+                                            <div class="percent">
+                                                5%</div>
+                                        </div>
+                                        <div class="progress progress-striped progress-thin">
+                                            <div class="progress-bar progress-bar-orange" role="progressbar" aria-valuenow="45"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 5%">
+                                                <span class="sr-only">5% Complete (warning)</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                JavaScript</div>
+                                            <div class="percent">
+                                                30%</div>
+                                        </div>
+                                        <div class="progress progress-striped progress-thin">
+                                            <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="45"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                                                <span class="sr-only">30% Complete (danger)</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <div class="desc">
+                                                Dropdowns</div>
+                                            <div class="percent">
+                                                60%</div>
+                                        </div>
+                                        <div class="progress progress-striped progress-thin">
+                                            <div class="progress-bar progress-bar-amethyst" role="progressbar" aria-valuenow="45"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                                <span class="sr-only">60% Complete</span>
+                                            </div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">Check all tasks <i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown quick-action notifications"><a class="dropdown-toggle button"
+                                data-toggle="dropdown" href="#"><i class="fa fa-bell"></i><span class="overlay-label orange">
+                                    12</span> </a>
+                                <ul class="dropdown-menu wide arrow orange nopadding">
+                                    <li>
+                                        <h1>
+                                            You have <strong>12</strong> new notifications</h1>
+                                    </li>
+                                    <li><a href="#"><span class="label label-green"><i class="fa fa-user"></i></span>New
+                                        user registered. <span class="small">18 mins</span> </a></li>
+                                    <li><a href="#"><span class="label label-red"><i class="fa fa-power-off"></i></span>
+                                        Server down. <span class="small">27 mins</span> </a></li>
+                                    <li><a href="#"><span class="label label-orange"><i class="fa fa-plus"></i></span>New
+                                        order. <span class="small">36 mins</span> </a></li>
+                                    <li><a href="#"><span class="label label-cyan"><i class="fa fa-power-off"></i></span>
+                                        Server restared. <span class="small">45 mins</span> </a></li>
+                                    <li><a href="#"><span class="label label-amethyst"><i class="fa fa-power-off"></i></span>
+                                        Server started. <span class="small">50 mins</span> </a></li>
+                                    <li><a href="#">Check all notifications <i class="fa fa-angle-right"></i></a></li>
+                                </ul>
+                            </li>*@
+                        </ul>
+                        <!-- Quick Actions End -->
+                        <!-- Search -->
+                        <div class="search">
+                            @*<input type="text" placeholder="&#61442; Search in charts &amp; graphs...">*@
+                            Dashboard for <strong>
+                                <label id="lblcurrentdate">
+                                </label>
+                            </strong>
+                        </div>
+                        <!-- Search end -->
+                        <!-- User Controls Start-->
+                        <div class="user-controls">
+                            <ul>
+                                <li class="dropdown messages"><span class="badge badge-red" id="user-new-messages"></span>
+                                    <strong>
+                                        <label id="lblLoggedInby">
+                                        </label>
+                                    </strong>@*<i class="fa fa-angle-down"></i>*@
+                                    <div class="profile-photo">
+                                        <img src="../NACContent/images/profile.jpg" alt />
+                                    </div>
+                                </li>
+                                <li class="dropdown settings"><a class="dropdown-toggle options" data-toggle="dropdown"
+                                    href="#"><i class="fa fa-cog"></i></a>
+                                    <ul class="dropdown-menu arrow">
+                                        <li>
+                                            <h3>
+                                                Color schemes:</h3>
+                                            <ul id="color-schemes">
+                                                <li><a href="#" class="brownish-scheme" title="Brownish"></a></li>
+                                                <li><a href="#" class="darkgrey-scheme" title="Dark Grey"></a></li>
+                                                <li><a href="#" class="lightgrey-scheme" title="Light Grey"></a></li>
+                                                <li><a href="#" class="cyan-scheme" title="Cyan"></a></li>
+                                                <li><a href="#" class="red-scheme" title="Red"></a></li>
+                                                <li><a href="#" class="orange-scheme" title="Orange"></a></li>
+                                                <li><a href="#" class="green-scheme" title="Green"></a></li>
+                                                <li><a href="#" class="amethyst-scheme" title="Amethyst"></a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/DashboardML"><i class="fa fa-power-off"></i>Logout</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- User Controls End -->
+                    </div>
+                    <!-- /Content collapsing at 768px to sidebar -->
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- Fixed navbar end -->
+            <!-- Page content -->
+            <div id="content" class="col-md-12 full-page-Anto">
+                <!-- content main container -->
+                <div class="main">
+                    <!-- row -->
+                    <div class="row">
+                        <!-- col 12 -->
+                        <div class="col-md-12 antoHeadingFixed">
+                            <!-- tile -->
+                            <section class="tile">
+                                <!-- tile header -->
+                                <div class="tile-header">
+                                    <h1>
+                                        Showroom Dashboard</h1>
+                                    <div class="controls">
+                                     @*  <button id="btnBranch" type="button" class="btn btn-green margin-bottom-20">
+                                            Switch To TNagar</button>*@
+                                        <button id="btnReport" type="button" class="btn btn-cyan margin-bottom-20">
+                                            Report</button>
+                                        <button type="button" class="btn btn-cyan margin-bottom-20">
+                                            Table</button>
+                                    </div>
+                                </div>
+                                <!-- /tile header -->
+                            </section>
+                            <!-- /tile -->
+                        </div>
+                        <!-- /col 12 -->
+                        <!-- col 12 -->
+                        <div class="col-md-12" style="padding-top:100px;">
+                            <!-- col 4 -->
+                            <div id="DIVDailySales" class="col-lg-4 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        DAILY SALES Vs DAILY TARGET (wt) (EXCLUDING SILVERMINE)</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @* <a href="/Home/DailySalesVsTarget" style="text-decoration:none;">*@<div>
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color greensea">
+                                            <div id="divDailyVsTarget">
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                        <!-- tile footer -->
+                                        <div id="Divfirstviw" class="tile-footer color greensea">
+                                            @*<div class="tile-body color red">
+                                        <table width = "100%" style="text-align:center;"><tr><td> <label >VIEW DETAILS </label>                   
+                                        </td> <td><i class="fa fa-chevron-right"></i></td></tr>                    
+                                        </table>
+                                    </div>         *@
+                                        </div>
+                                        <!-- /tile footer -->
+                                    </div>@*</a>*@
+                                </section>
+                                <!-- /tile -->
+                            </div>
+                            <!--Anto-->
+                            <div id= "DIVDailysalSIL" class="col-lg-2 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        DAILY SALES Vs DAILY TARGET (wt) SILVERMINE</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @*<a href="/Home/SpecialApprovalpage" style="text-decoration: none;">*@
+                                        <div>
+                                            <!-- tile widget -->
+                                            <div class="tile-widget color orange">
+                                                <div class="tile-body color grey">
+                                                    <table width="100%" style="text-align: center;">
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    TARGET</h2>
+                                                            </td>
+                                                            <td rowspan="2">
+                                                                <i class="fa fa-chevron-right"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lbltargetsilver">
+                                                                    </label>
+                                                                </h2>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- /tile widget -->
+                                            <!-- tile widget -->
+                                            <div class="tile-widget color orange">
+                                                <div class="tile-body color grey">
+                                                    <table width="100%" style="text-align: center;">
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    SALES</h2>
+                                                            </td>
+                                                            <td rowspan="2">
+                                                                <i class="fa fa-chevron-right"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lblsalessilver">
+                                                                    </label>
+                                                                </h2>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- /tile widget -->
+                                        </div>
+                                    @*</a>*@
+                                </section>
+                            </div>
+                            <div id="DivFloorWiseSale" class="col-lg-3 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        FLOOR WISE SALES (Amt)</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @*<a href="/Home/FloorWiseSales" style="text-decoration:none;">*@<div>
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color hotpink">
+                                            <div id="divFloorWiseSales">
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                        <!-- tile footer -->
+                                        <div id="DivSecondview" class="tile-footer color hotpink">
+                                            @*<div class="tile-body color cyan">
+                                        <table width = "100%" style="text-align:center;"><tr><td> <label >VIEW DETAILS </label>                   
+                                        </td> <td><i class="fa fa-chevron-right"></i></td></tr>                    
+                                        </table>
+                                    </div>*@
+                                        </div>
+                                        <!-- /tile footer -->
+                                    </div>@*</a>   *@
+                                </section>
+                                <!-- /tile -->
+                            </div>
+                            <!--/Anto-->
+                            <div class="col-lg-3 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        TREND IN SALES (Amt) (Last 7 Days)</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    <!-- tile widget -->
+                                    <div class="tile-widget color cyan">
+                                        <div id="divTrendInSales">
+                                        </div>
+                                    </div>
+                                    <!-- /tile widget -->
+                                    <!-- tile footer -->
+                                    <div id="DivTrendInSalesTable" class="tile-footer color cyan">
+                                        @* <div class="tile-body color hotpink">
+                                        <table width = "100%" style="text-align:center;"><tr><td> <label >VIEW DETAILS </label>                   
+                                        </td> <td><i class="fa fa-chevron-right"></i></td></tr>                    
+                                        </table>
+                                    </div>     *@
+                                    </div>
+                                    <!-- /tile footer -->
+                                </section>
+                                <!-- /tile -->
+                            </div>
+                        </div>
+                        <!-- /col 12 -->
+                        <!-- col 12 -->
+                        <div class="col-md-12">
+                            <div id="divTopTenStoreWiseSales" class="col-lg-3 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        TOP 10 ITEM WISE SALES (wt)</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @* <a href="/Home/StoreWiseSales" style="text-decoration:none;">*@<div>
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color cyan">
+                                            <div id="divStoreWiseSales">
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                        <!-- tile footer -->
+                                        <div id="DivStoreWiseSalesTable" class="tile-footer color cyan">
+                                            @*<div class="tile-body color grey">
+                                        <table width = "100%" style="text-align:center;"><tr><td> <label >VIEW DETAILS </label>                   
+                                        </td> <td><i class="fa fa-chevron-right"></i></td></tr>                    
+                                        </table>
+                                    </div>      *@
+                                        </div>
+                                        <!-- /tile footer -->
+                                    </div>@*</a>*@
+                                </section>
+                            </div>
+                            <div id="DivSalesPersonPerform" class="col-lg-4 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        TOP 10 SALES PERSON PERFORMANCE (Amt)
+                                    </h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @* <a href="/Home/SalesPersonPerformance" style="text-decoration:none;">*@<div>
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color red">
+                                            <div id="divSalesPersonPerformance">
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                        <!-- tile footer -->
+                                        <div id="DivSalesPersonPerformanceTable" class="tile-footer color red">
+                                            @*<div class="tile-body color hotpink">
+                                        <table width = "100%" style="text-align:center;"><tr><td> <label >VIEW DETAILS </label>                   
+                                        </td> <td><i class="fa fa-chevron-right"></i></td></tr>                    
+                                        </table>
+                                    </div>*@
+                                        </div>
+                                        <!-- /tile footer -->
+                                    </div>@*</a>*@
+                                </section>
+                                <!-- /tile -->
+                            </div>
+                            <div id="DivCounterSales" class="col-lg-5 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        TOP 10 COUNTER WISE SALES</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @*<a href="/Home/Top10Counterwisesales" style="text-decoration:none;">*@
+                                    <div>
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color violet">
+                                            <div id="divTop10Counterwisesales">
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                        <!-- tile footer -->
+                                        <div id="DivTop10CounterwisesalesTable" class="tile-footer color violet">
+                                            @*<div class="tile-body color grey">
+                                        <table width = "100%" style="text-align:center;"><tr><td> <label >VIEW DETAILS </label>                   
+                                        </td> <td><i class="fa fa-chevron-right"></i></td></tr>                    
+                                        </table>
+                                    </div>      *@
+                                        </div>
+                                        <!-- /tile footer -->
+                                    </div>@*</a>*@
+                                </section>
+                                <!-- /tile -->
+                            </div>
+                        </div>
+                        <!-- /col 12 -->
+                        <!-- col 12 -->
+                        <div class="col-md-12">
+                            <!-- For Floor Wise Metal Sales -->
+                            <div id="DIVfloormetalsales" class="col-lg-7 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        FLOOR WISE METAL SALES</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @* <a href="/Home/FloorWiseMetalSales" style="text-decoration: none;">*@
+                                    <div>
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color grey">
+                                            <div id="divFloorWiseMetalSales">
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                        <!-- tile footer -->
+                                        <div id="DivFloorWiseMetalSalesTable" class="tile-widget color grey">
+                                        </div>
+                                        <!-- /tile footer -->
+                                    </div>
+                                    @*</a>*@
+                                </section>
+                                <!-- /tile -->
+                            </div>
+                            <!-- /For Floor Wise Metal Sales -->
+                            <!-- STOCK AVAILABILITY STATUS-->
+                            <div id="DIVstockavail" class="col-lg-5 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        STOCK AVAILABILITY STATUS (wt)</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @*<a href="/Home/StockAgeing" style="text-decoration:none;">*@<div>
+                                        <!-- tile body -->
+                                        <div class="tile-body color hotpink">
+                                            <div id="divStockAvailability">
+                                            </div>
+                                        </div>
+                                        <!-- /tile body -->
+                                        <!-- tile footer -->
+                                        <div id="DivThirdviw" class="tile-footer color hotpink">
+                                            @*<div class="tile-body color green">
+                                       <table width = "100%" style="text-align:center;"><tr><td> <label >VIEW ALL STOCK </label>                   
+                                       </td> <td><i class="fa fa-chevron-right"></i></td></tr>                    
+                                       </table>
+                                   </div>*@
+                                        </div>
+                                        <!-- /tile footer -->
+                                    </div>@*</a>*@
+                                </section>
+                                <!-- /tile -->
+                            </div>
+                            <!-- /STOCK AVAILABILITY STATUS-->
+                        </div>
+                        <!-- /col 12 -->
+                        <!-- col 12 -->
+                        <div id="DivFloorwiseChit" class="col-md-12">
+                            <!-- Chit Report -->
+                            <div style="width: 100%; text-align: center;">
+                                <h5 class="thin">
+                                    CHIT REPORT</h5>
+                            </div>
+                            <!-- tile -->
+                            <section class="tile">
+                                @*<a href="/Home/FloorwiseChit" style="text-decoration:none;">*@<div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color green">
+                                            <div class="tile-body color cyan">
+                                                <table width="100%" style="text-align: center;">
+                                                     <tr><td><h2 class="thin">EXISTING</h2></td><td rowspan="5"><i class="fa fa-chevron-right"></i></td></tr>
+                                                     <tr><td>COUNT</td></tr><tr><td><h2><label id="lblexistingcount"></label></h2></td></tr>
+                                                     <tr><td>AMOUNT</td></tr><tr><td><h2><label id="lblexistingamt"></label></h2></td></tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                    </div>
+                                    <div class="col-lg-2 col-md-12">
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color green">
+                                            <div class="tile-body color greensea">
+                                                <table width="100%" style="text-align: center;">
+                                                    <tr><td><h2 class="thin">NEW</h2></td><td rowspan="5"><i class="fa fa-chevron-right"></i></td></tr>
+                                                    <tr><td>COUNT</td></tr><tr><td><h2><label id="lblNewcount"></label></h2></td></tr>
+                                                    <tr><td>AMOUNT</td></tr><tr><td><h2><label id="lblNewamt"></label></h2></td></tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                    </div>
+                                    <div class="col-lg-2 col-md-12">
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color green">
+                                            <div class="tile-body color orange">
+                                                <table width="100%" style="text-align: center;">
+                                                    <tr><td><h2 class="thin">MATURED</h2></td><td rowspan="5"><i class="fa fa-chevron-right"></i></td></tr>
+                                                    <tr><td>COUNT</td></tr><tr><td><h2><label id="lblMaturedcount"></label></h2></td></tr>
+                                                    <tr><td>AMOUNT</td></tr><tr><td><h2><label id="lblMaturedamt"></label></h2></td></tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                    </div>
+                                    <div class="col-lg-3 col-md-12">
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color green">
+                                            <div class="tile-body color red">
+                                                <table width="100%" style="text-align: center;">
+                                                   <tr><td><h2 class="thin">DISCONTINUED</h2></td><td rowspan="5"><i class="fa fa-chevron-right"></i></td></tr>
+                                                   <tr><td>COUNT</td></tr><tr><td><h2><label id="lblDiscontinuedcount"></label></h2></td></tr>
+                                                   <tr><td>AMOUNT</td></tr><tr><td><h2><label id="lblDiscontinuedamt"></label></h2></td></tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                    </div>
+                                    <div class="col-lg-2 col-md-12">
+                                        <!-- tile widget -->
+                                        <div class="tile-widget color green">
+                                            <div class="tile-body color drank">
+                                                <table width="100%" style="text-align: center;">
+                                                    <tr><td><h2 class="thin">REJOIN</h2></td><td rowspan="5"><i class="fa fa-chevron-right"></i></td></tr>
+                                                    <tr><td>COUNT</td></tr><tr><td><h2><label id="lblRejoincount"></label></h2></td></tr>
+                                                    <tr><td>AMOUNT</td></tr><tr><td><h2><label id="lblRejoinamt"></label></h2></td></tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- /tile widget -->
+                                    </div>
+                                </div>@*</a>*@
+                            </section>
+                            <!-- /tile -->
+                            <!-- /Chit Report -->
+                        </div>
+                        <!-- /col 12 -->
+                        <!-- col 12 -->
+                        <div id="DivOrderSummary" class="col-md-12">
+                            <!-- For Order Summary -->
+                            <div style="width: 100%; text-align: center;">
+                                <h5 class="thin">
+                                    ORDER SUMMARY (COUNT)</h5>
+                            </div>
+                            <!-- tile -->
+                            <section class="tile">
+                                @*<a href="/Home/OrderSummaryPage" style="text-decoration: none;">*@
+                                    <div>
+                                        <div class="col-lg-4 col-md-12">
+                                            <!-- tile widget -->
+                                            <div class="tile-widget color orange">
+                                                <div class="tile-body color green">
+                                                    <table width="100%" style="text-align: center;">
+                                                        @*<tr><td><h2 class="thin">DELIVERED</h2></td><td rowspan="2"><i class="fa fa-chevron-right"></i></td></tr><tr><td><h2><label id="lblOrderCount"></label></h2></td></tr>*@
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    DELIVERED</h2>
+                                                            </td>
+                                                            <td>
+                                                                <h2>
+                                                                    -</h2>
+                                                            </td>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lblOrderCount">
+                                                                    </label>
+                                                                </h2>
+                                                            </td>
+                                                            <td rowspan="3">
+                                                                <i class="fa fa-chevron-right"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    DELIVERED IN TIME</h4>
+                                                            </td>
+                                                            <td>
+                                                                -
+                                                            </td>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    <label id="lblDeliveredInTime">
+                                                                    </label>
+                                                                </h4>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    DELAYED</h4>
+                                                            </td>
+                                                            <td>
+                                                                -
+                                                            </td>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    <label id="lblDeliveredDelayed">
+                                                                    </label>
+                                                                </h4>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="tile-body color green">
+                                                </div>
+                                            </div>
+                                            <!-- /tile widget -->
+                                        </div>
+                                        <div class="col-lg-4 col-md-12">
+                                            <!-- tile widget -->
+                                            <div class="tile-widget color orange">
+                                                <div class="tile-body color greensea">
+                                                    <table width="100%" style="text-align: center;">
+                                                        @*<tr><td><h2 class="thin">PENDING</h2></td><td rowspan="2"><i class="fa fa-chevron-right"></i></td></tr><tr><td><h2><label id="lblPendingCount"></label></h2></td></tr>*@
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    PENDING</h2>
+                                                            </td>
+                                                            <td>
+                                                                <h2>
+                                                                    -</h2>
+                                                            </td>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lblPendingCount">
+                                                                    </label>
+                                                                </h2>
+                                                            </td>
+                                                            <td rowspan="4">
+                                                                <i class="fa fa-chevron-right"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    READY TO DELIVERY</h4>
+                                                            </td>
+                                                            <td>
+                                                                -
+                                                            </td>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    <label id="lblPendingRTD">
+                                                                    </label>
+                                                                </h4>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    ISSUE TO SMITH</h4>
+                                                            </td>
+                                                            <td>
+                                                                -
+                                                            </td>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    <label id="lblPendingITS">
+                                                                    </label>
+                                                                </h4>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    PENDING WITH US</h4>
+                                                            </td>
+                                                            <td>
+                                                                -
+                                                            </td>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    <label id="lblPendingPWU">
+                                                                    </label>
+                                                                </h4>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- /tile widget -->
+                                        </div>
+                                        <div class="col-lg-4 col-md-12">
+                                            <!-- tile widget -->
+                                            <div class="tile-widget color orange">
+                                                <div class="tile-body color red">
+                                                    <table width="100%" style="text-align: center;">
+                                                        @*<tr><td><h2 class="thin">OVER DUE</h2></td><td rowspan="2"><i class="fa fa-chevron-right"></i></td></tr><tr><td><h2><label id="lblDueCount"></label></h2></td></tr>*@
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    OVER DUE</h2>
+                                                            </td>
+                                                            <td>
+                                                                <h2>
+                                                                    -</h2>
+                                                            </td>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lblDueCount">
+                                                                    </label>
+                                                                </h2>
+                                                            </td>
+                                                            <td rowspan="4">
+                                                                <i class="fa fa-chevron-right"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    READY TO DELIVERY</h4>
+                                                            </td>
+                                                            <td>
+                                                                -
+                                                            </td>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    <label id="lblOverdueRTD">
+                                                                    </label>
+                                                                </h4>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    ISSUE TO SMITH</h4>
+                                                            </td>
+                                                            <td>
+                                                                -
+                                                            </td>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    <label id="lblOverdueITS">
+                                                                    </label>
+                                                                </h4>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    OVER DUE WITH US</h4>
+                                                            </td>
+                                                            <td>
+                                                                -
+                                                            </td>
+                                                            <td>
+                                                                <h4 class="thin">
+                                                                    <label id="lblOverduePWU">
+                                                                    </label>
+                                                                </h4>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- /tile widget -->
+                                        </div>
+                                    </div>
+                               @* </a>*@
+                            </section>
+                            <!-- /tile -->
+                            <!-- /For Order Summary -->
+                        </div>
+                        <!-- /col 12 -->
+                        <!-- col 12 -->
+                        <div class="col-md-12">
+                            <!-- For Estimation To Conversion -->
+                            <div id="DIVEstimation" class="col-lg-4 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        ESTIMATION CONVERSION</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                   @* <a href="/Home/EstimationConversion" style="text-decoration: none;">*@
+                                        <div>
+                                           <div class="col-lg-6 col-md-12">
+                                                <!-- tile widget -->
+                                                <div class="tile-widget color orange">
+                                                    <div class="tile-body color green">
+                                                        <table width="100%" style="text-align: center;">
+                                                            <tr>
+                                                                <td>
+                                                                    <h2 class="thin">
+                                                                        SALE</h2>
+                                                                </td>
+                                                                <td rowspan="5">
+                                                                    <i class="fa fa-chevron-right"></i>
+                                                                </td>
+                                                            </tr>
+                                                            <tr><td>COUNT</td></tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <h2>
+                                                                        <label id="lblSales">
+                                                                        </label>
+                                                                    </h2>
+                                                                </td>
+                                                            </tr>
+                                                            <tr><td>AMOUNT</td></tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <h4>
+                                                                        <label id="lblSalesAmt">
+                                                                        </label>
+                                                                    </h4>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- /tile widget -->
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <!-- tile widget -->
+                                                <div class="tile-widget color orange">
+                                                    <div class="tile-body color red">
+                                                        <table width="100%" style="text-align: center;">
+                                                            <tr>
+                                                                <td>
+                                                                    <h2 class="thin">
+                                                                        NO SALE</h2>
+                                                                </td>
+                                                                <td rowspan="5">
+                                                                    <i class="fa fa-chevron-right"></i>
+                                                                </td>
+                                                            </tr>
+                                                             <tr><td>COUNT</td></tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <h2>
+                                                                        <label id="lblNoSales">
+                                                                        </label>
+                                                                    </h2>
+                                                                </td>
+                                                            </tr>
+                                                             <tr><td>AMOUNT</td></tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <h4>
+                                                                        <label id="lblNoSalesAmt">
+                                                                        </label>
+                                                                    </h4>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <!-- /tile widget -->
+                                            </div>
+                                        </div>
+                                   @* </a>*@
+                                </section>
+                                <!-- /tile -->
+                            </div>
+                            <!-- /For Estimation To Conversion -->
+                            <!-- For Special Approvals -->
+                            <div id="DIVSpecialApproval" class="col-lg-3 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        SPECIAL APPROVALS</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @*<a href="/Home/SpecialApprovalpage" style="text-decoration: none;">*@
+                                        <div>
+                                            <!-- tile widget -->
+                                            <div class="tile-widget color orange">
+                                                <div class="tile-body color red">
+                                                    <table width="100%" style="text-align: center;">
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    CUSTOMER COUNT</h2>
+                                                            </td>
+                                                            <td rowspan="6">
+                                                                <i class="fa fa-chevron-right"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lblcustomercount">
+                                                                    </label>
+                                                                </h2>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    APPROVAL COUNT</h2>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lblcustomertotalcount">
+                                                                    </label>
+                                                                </h2>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    TOTAL AMOUNT</h2>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lblcustomertotalamt">
+                                                                    </label>
+                                                                </h2>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- /tile widget -->
+                                        </div>
+                                    @*</a>*@
+                                </section>
+                            </div>
+                            <!-- /For Special Approvals -->
+                            <!-- For Sales Return -->
+                            <div id="DIVSalesReturn" class="col-lg-3 col-md-12">
+                                <div style="width: 100%; text-align: center;">
+                                    <h5 class="thin">
+                                        SALES RETURN</h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    @*<a href="/Home/SalesReturn" style="text-decoration: none;">*@
+                                        <div>
+                                            <!-- tile widget -->
+                                            <div class="tile-widget color green">
+                                                <div class="tile-body color red">
+                                                    <table width="100%" style="text-align: center;">
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    TOTAL COUNT</h2>
+                                                            </td>
+                                                            <td rowspan="4">
+                                                                <i class="fa fa-chevron-right"></i>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lbltotalcountSR">
+                                                                </h2>
+                                                                </label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2 class="thin">
+                                                                    TOTAL AMOUNT</h2>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h2>
+                                                                    <label id="lbltotalamountSR"></label>
+                                                                </h2>
+                                                                
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <!-- /tile widget -->
+                                        </div>
+                                   @* </a>*@
+                                </section>
+                                <!-- /tile -->
+                            </div>
+                            <!-- /For Sales Return -->
+                            <div class="col-lg-2 col-md-12">
+                                <!-- For Store Walkouts -->
+                                <div style="width: 100%; text-align: center;">
+                                    <h5>
+                                        <strong>STORE WALKOUTS</strong></h5>
+                                </div>
+                                <!-- tile -->
+                                <section class="tile">
+                                    <div class="tile-body color red">
+                                        <table width="100%" style="text-align: center;">
+                                            <tr>
+                                                <td>
+                                                    <h1>
+                                                        <strong>AWAITING DATA</strong></h1>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </section>
+                                <!-- /For Store Walkouts -->
+                            </div>
+                        </div>
+                        <!-- /col 12 -->
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /content container -->
+            </div>
+            <!-- Page content end -->
+        </div>
+        <!-- Make page fluid-->
+    </div>
+    <!-- Wrap all page content end -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../NACContent/js/bootstrap.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>
+    <script src="../NACContent/js/plugins/jquery.nicescroll.min.js"></script>
+    <script src="../NACContent/js/plugins/blockui/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/justgage/justgage.js"></script>
+    <script type="text/javascript" src="../NACContent/js/plugins/rickshaw/raphael-min.js"></script>
+    <script src="../NACContent/js/minoral.min.js"></script>
+    <script>
+
+        $(function () {
+
+            //Passing Usertype to redirecting page start//
+
+            var usertyp = '';
+            var queryString = new Array();
+
+            if (queryString.length == 0) {
+                if (window.location.search.split('?').length > 1) {
+                    var params = window.location.search.split('?')[1].split('&');
+                    for (var i = 0; i < params.length; i++) {
+                        var key = params[i].split('=')[0];
+                        var valuess = decodeURIComponent(params[i].split('=')[1]);
+                        queryString[key] = valuess;
+                    }
+                }
+            }
+
+//            if (queryString["USERTYPE"] != null) {
+
+//                usertyp = queryString["USERTYPE"].toString();
+
+//                if (usertyp == 6 && branch == "TNagar") {
+//                    window.location = ("/Home/DashboardTableTN");
+//                }
+//                else if (usertyp == 7 && branch == "TNagar") {
+//                    window.location = ("/Home/ManagementDashboardTableTN");
+//                }
+//                else if (usertyp == 8 && branch == "TNagar") {
+//                    window.location = ("/Home/MarketingDashboardTableTN");
+//                }
+//                else if (usertyp == 9 && branch == "TNagar") {
+//                    window.location = ("/Home/FinanceDashboardTableTN");
+//                }
+
+//                else if (usertyp == 6 && branch == "Mylapore") {
+//                    window.location = ("/Home/DashboardTable");
+//                }
+//                else if (usertyp == 7 && branch == "Mylapore") {
+//                    window.location = ("/Home/ManagementDashboardTable");
+//                }
+//                else if (usertyp == 8 && branch == "Mylapore") {
+//                    window.location = ("/Home/MarketingDashboardTable");
+//                }
+//                else if (usertyp == 9 && branch == "Mylapore") {
+//                    window.location = ("/Home/FinanceDashboardTable");
+//                }
+//            }
+
+            //Passing Usertype to redirecting page end//
+
+
+            //To set Current Date -Start
+
+            var d = new Date();
+
+            var month = d.getMonth() + 1;
+            var day = d.getDate();
+
+            var output = (('' + day).length < 2 ? '0' : '') + day + '-' +
+                         (('' + month).length < 2 ? '0' : '') + month + '-' +
+                         d.getFullYear();
+
+            $('#lblcurrentdate').html(output);
+
+            //To set Current Date - End
+
+            //For Redirecting to  Dashboard Table - Start
+            $('#btnReport').click(function () {
+                window.location = ("/Home/Dashboard");
+
+            });
+            //For Redirecting to  Dashboard Table - End
+
+            //For Redirecting to  Dashboard T Nagar - Start
+//            $('#btnBranch').click(function () {
+//                window.location = ("/Home/DashboardTableTN");
+
+//            });
+            //For Redirecting to  Dashboard T Nagar - End   
+
+            //Variable for branch
+            var Branch = "Mylapore";
+
+            //To get the User Type  - Start
+            var UserType = "";
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "GetUserType",
+                 dataType: "text",
+                 success: function (dataaaa) {
+                     console.log('USERTYPE : ' + dataaaa);
+                     UserType = dataaaa;
+                 }
+             });
+
+            //To get the User Type - End
+
+            //Daily Sales Vs Target - START
+            //var TotalTarget = 0.0;
+            //var TotalAchieved = 0.0;
+
+            $('#DIVDailySales').click(function () {
+//                $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         //window.location = ("/Home/FloorwiseChit?USERTYPE=" + dataaaa);
+//                         window.location = ("/Home/DailySalesVsTargetShowroom?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+                //                 });
+                window.location = ("/Home/DailySalesVsTargetShowroom?USERTYPE=" + UserType + "&Branch=" + Branch);
+
+             });
+
+             $('#DIVDailysalSIL').click(function () {
+//                 $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         //window.location = ("/Home/FloorwiseChit?USERTYPE=" + dataaaa);
+//                         window.location = ("/Home/DailySalesVsTargetSILShowroom?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+                 //                 });
+                 window.location = ("/Home/DailySalesVsTargetSILShowroom?USERTYPE=" + UserType + "&Branch=" + Branch);                
+
+             });
+
+            $('#DivFloorWiseSale').click(function () {
+                //To get the usertype of the Logged in Person - Start
+//                $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/FloorWiseSales?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                //To get the usertype of the Logged in Person - End  
+                window.location = ("/Home/FloorWiseSales?USERTYPE=" + UserType + "&Branch=" + Branch);
+            });
+
+            $('#divTopTenStoreWiseSales').click(function () {
+                //To get the usertype of the Logged in Person - Start
+//                $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/StoreWiseSales?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                //To get the usertype of the Logged in Person - End 
+                window.location = ("/Home/StoreWiseSales?USERTYPE=" + UserType + "&Branch=" + Branch);
+            });
+
+            $('#DivSalesPersonPerform').click(function () {
+                //To get the usertype of the Logged in Person - Start
+//                $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/SalesPersonPerformance?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                //To get the usertype of the Logged in Person - End 
+                window.location = ("/Home/SalesPersonPerformance?USERTYPE=" + UserType + "&Branch=" + Branch);
+            });
+
+            $('#DIVfloormetalsales').click(function () {
+                //To get the usertype of the Logged in Person - Start
+
+//                $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/FloorWiseMetalSales?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                //To get the usertype of the Logged in Person - End  
+                window.location = ("/Home/FloorWiseMetalSales?USERTYPE=" + UserType + "&Branch=" + Branch);
+            });
+
+            $('#DIVstockavail').click(function () {
+                //To get the usertype of the Logged in Person - Start
+//                $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/StockAgeing?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                //To get the usertype of the Logged in Person - End 
+                window.location = ("/Home/StockAgeing?USERTYPE=" + UserType + "&Branch=" + Branch);
+            });
+
+             $('#DivFloorwiseChit').click(function () {
+                 //To get the usertype of the Logged in Person - Start
+//                 $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/FloorwiseChit?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                 //To get the usertype of the Logged in Person - End                 
+                 window.location = ("/Home/FloorwiseChit?USERTYPE=" + UserType + "&Branch=" + Branch);
+             });
+
+             $('#DivOrderSummary').click(function () {
+                 //To get the usertype of the Logged in Person - Start
+//                 $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/OrderSummaryPage?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                 //To get the usertype of the Logged in Person - End                 
+                 window.location = ("/Home/OrderSummaryPage?USERTYPE=" + UserType + "&Branch=" + Branch);
+             });
+
+             $('#DIVEstimation').click(function () {
+                 //To get the usertype of the Logged in Person - Start
+
+//                 $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/EstimationConversion?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                 //To get the usertype of the Logged in Person - End                
+                 window.location = ("/Home/EstimationConversion?USERTYPE=" + UserType + "&Branch=" + Branch);
+             });
+
+             $('#DIVSpecialApproval').click(function () {
+                 //To get the usertype of the Logged in Person - Start
+//                 $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/SpecialApprovalpage?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                 //To get the usertype of the Logged in Person - End    
+                 window.location = ("/Home/SpecialApprovalpage?USERTYPE=" + UserType + "&Branch=" + Branch);
+             });
+
+             $('#DIVSalesReturn').click(function () {
+                 //To get the usertype of the Logged in Person - Start
+//                 $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/SalesReturn?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                 //To get the usertype of the Logged in Person - End                
+                 window.location = ("/Home/SalesReturn?USERTYPE=" + UserType + "&Branch=" + Branch);
+             });
+
+             $('#DivCounterSales').click(function () {
+                 //To get the usertype of the Logged in Person - Start
+//                 $.ajax
+//                 ({
+//                     type: "POST",
+//                     url: "GetUserType",
+//                     dataType: "text",
+//                     success: function (dataaaa) {
+//                         console.log('USERTYPE : ' + dataaaa);
+//                         window.location = ("/Home/Top10Counterwisesales?USERTYPE=" + dataaaa + "&Branch=" + Branch);
+//                     }
+//                 });
+                 //To get the usertype of the Logged in Person - End
+                 window.location = ("/Home/Top10Counterwisesales?USERTYPE=" + UserType + "&Branch=" + Branch);
+             });      
+
+            function AmountWithComma(amt) {
+                var x = amt;
+                x = x.toString();
+                var afterPoint = '';
+                if (x.indexOf('.') > 0)
+                    afterPoint = x.substring(x.indexOf('.'), x.length);
+                x = Math.floor(x);
+                x = x.toString();
+                var lastThree = x.substring(x.length - 3);
+                var otherNumbers = x.substring(0, x.length - 3);
+                if (otherNumbers != '')
+                    lastThree = ',' + lastThree;
+                var AmountSepWithComma = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree + afterPoint;
+                return AmountSepWithComma;
+            }
+
+            //To get the Name of the Logged in Person - Start
+
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "GetUserName",
+                 dataType: "text",
+                 success: function (dataaaa) {
+                     console.log('USERNAME : ' + dataaaa);
+                     $('#lblLoggedInby').html(dataaaa);
+                 }
+             });
+
+            //To get the Name of the Logged in Person - End
+
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "SecondQTRTarget?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     console.log('SalesVsTarget :' + dataaaa.aaDataSalesVsTarget);
+
+                     var TableBottomBorder = 'style="border-bottom-color:White; border-bottom-style:solid; border-bottom-width:thin;"';
+                     var TableStart = '<table width=100%><tr><th align="left" ' + TableBottomBorder + '><h5>';
+                     var TableEnd = '</table>';
+                     var Alignright = 'align="right" ';
+                     var TableHeading = 'FLOOR</h5></th><th ' + Alignright + TableBottomBorder + '><h5> DAILY SALES</h5></th><th ' + Alignright + TableBottomBorder + '><h5> TARGET</h5></th><th></th></tr>';
+                     var FinalTable = '';
+                     var TableContent = '';
+                     var rowcount = dataaaa.aaDataSalesVsTarget.length;
+
+                     for (var ii = 0; ii < dataaaa.aaDataSalesVsTarget.length; ii++) {
+                         if (ii == dataaaa.aaDataSalesVsTarget.length - 1) {
+                             TableContent = TableContent + '<tr><td ' + TableBottomBorder + '><strong>' + dataaaa.aaDataSalesVsTarget[ii][0] + '</strong></td><td ' + Alignright + ' ' + TableBottomBorder + '><strong>' + (dataaaa.aaDataSalesVsTarget[ii][2]).toFixed(3) + '</strong></td><td ' + Alignright + ' ' + TableBottomBorder + '><strong>' + dataaaa.aaDataSalesVsTarget[ii][1] + '</strong></td></tr>';
+                         }
+                         else {
+                             if (ii == 0) {
+                                 TableContent = TableContent + '<tr><td><strong>' + dataaaa.aaDataSalesVsTarget[ii][0] + '</strong></td><td ' + Alignright + '><strong>' + (dataaaa.aaDataSalesVsTarget[ii][2]).toFixed(3) + '</strong></td><td ' + Alignright + '><strong>' + dataaaa.aaDataSalesVsTarget[ii][1] + '</strong></td><td rowspan="' + rowcount + '" style="padding-left:5px;"><i class="fa fa-chevron-right"></i></td></tr>';
+                             }
+                             else {
+                                 TableContent = TableContent + '<tr><td><strong>' + dataaaa.aaDataSalesVsTarget[ii][0] + '</strong></td><td ' + Alignright + '><strong>' + (dataaaa.aaDataSalesVsTarget[ii][2]).toFixed(3) + '</strong></td><td ' + Alignright + '><strong>' + dataaaa.aaDataSalesVsTarget[ii][1] + '</strong></td></tr>';
+                             }
+                         }
+                     }
+
+                     FinalTable = TableStart + TableHeading + TableContent + TableEnd;
+                     $("#divDailyVsTarget").html(FinalTable);
+                 }
+             });
+
+            //Daily Sales Vs Target - END  
+
+            //Floor Wise Sales - Start
+
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "FloorwiseSaless?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaa) {
+                     console.log('aaDatasaleamt :' + dataaa.aaDatasaleamt);
+                     //                     console.log('aaDataSalesValue :' + dataaa.aaDataSalesValue);
+                     //                     console.log('aaDataSalesTurnOvr :' + dataaa.aaDataSalesTurnOvr);
+                     console.log('aaDataxaxis :' + dataaa.aaDataxaxis);
+                     //$("#lblFloorFirst").html(dataaa.aaDataAxis[0]);
+                     //$("#lblFloorFirstAmt").html(dataaa.aaDataSalesAmt[0]);
+
+                     var TableBottomBorderFWS = 'style="border-bottom-color:White; border-bottom-style:solid; border-bottom-width:thin;"';
+                     var TableStartFWS = '<table width=100%><tr><th align="left" ' + TableBottomBorderFWS + '><h5>';
+                     var TableEndFWS = '</table>';
+                     var AlignrightFWS = 'align="right" ';
+                     var TableHeadingFWS = 'FLOOR</h5></th><th ' + AlignrightFWS + TableBottomBorderFWS + '><h5> AMOUNT</h5></th><th></th></tr>';
+                     var FinalTableFWS = '';
+                     var TableContentFWS = '';
+                     var rowcountFWS = dataaa.aaDataxaxis.length;
+
+                     for (var iiFWS = 0; iiFWS < dataaa.aaDataxaxis.length; iiFWS++) {
+
+                         if (iiFWS == dataaa.aaDataxaxis.length - 1) {
+                             TableContentFWS = TableContentFWS + '<tr><td ' + TableBottomBorderFWS + '><strong>' + dataaa.aaDataxaxis[iiFWS] + '</strong></td><td ' + AlignrightFWS + ' ' + TableBottomBorderFWS + '><strong>' + AmountWithComma((dataaa.aaDatasaleamt[iiFWS]).toFixed(2)) + '</strong></td></tr>';
+                         }
+                         else {
+                             if (iiFWS == 0) {
+                                 TableContentFWS = TableContentFWS + '<tr><td><strong>' + dataaa.aaDataxaxis[iiFWS] + '</strong></td><td ' + AlignrightFWS + '><strong>' + AmountWithComma((dataaa.aaDatasaleamt[iiFWS]).toFixed(2)) + '</strong></td><td rowspan="' + rowcountFWS + '" style="padding-left:5px;"><i class="fa fa-chevron-right"></i></td></tr>';
+                             }
+                             else {
+                                 TableContentFWS = TableContentFWS + '<tr><td><strong>' + dataaa.aaDataxaxis[iiFWS] + '</strong></td><td ' + AlignrightFWS + '><strong>' + AmountWithComma((dataaa.aaDatasaleamt[iiFWS]).toFixed(2)) + '</strong></td></tr>';
+                             }
+                         }
+                     }
+
+                     FinalTableFWS = TableStartFWS + TableHeadingFWS + TableContentFWS + TableEndFWS;
+
+                     $('#divFloorWiseSales').html(FinalTableFWS);
+                 }
+             });
+            //Floor Wise Sales - Start
+
+            // FloorWise Metal Sales - Start
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "FloorwiseMetalTab?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     console.log('aaDatafloorwisemetal :' + dataaaa.aaDatafloorwisemetal);
+                     var TableBottomBorderTSP = 'style="border-bottom-color:White; border-bottom-style:solid; border-bottom-width:thin;"';
+                     var TableStartTSP = '<table width=100%><tr><th align="left" ' + TableBottomBorderTSP + '><h5>';
+                     var TableEndTSP = '</table>';
+                     var AlignrightTSP = 'align="right" ';
+                     var TableHeadingTSP = 'FLOOR</h5></th><th ' + AlignrightTSP + TableBottomBorderTSP + '><h5> GOLD</h5></th><th ' + AlignrightTSP + TableBottomBorderTSP + '><h5> SILVER</h5></th><th ' + AlignrightTSP + TableBottomBorderTSP + '><h5> DIAMOND</h5></th><th ' + AlignrightTSP + TableBottomBorderTSP + '><h5> OTHERS</h5></th><th></th></tr>';
+                     var FinalTableTSP = '';
+                     var TableContentTSP = '';
+                     var rowcountTSP = dataaaa.aaDatafloorwisemetal.length;
+
+                     for (var iTSP = 0; iTSP < dataaaa.aaDatafloorwisemetal.length; iTSP++) {
+                         if (iTSP == dataaaa.aaDatafloorwisemetal.length - 1) {
+                             TableContentTSP = TableContentTSP + '<tr><td ' + TableBottomBorderTSP + '><strong>' + dataaaa.aaDatafloorwisemetal[iTSP][0] + '</strong></td><td ' + AlignrightTSP + ' ' + TableBottomBorderTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][1]).toFixed(2)) + '</strong></td><td ' + AlignrightTSP + ' ' + TableBottomBorderTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][2]).toFixed(2)) + '</strong></td><td ' + AlignrightTSP + ' ' + TableBottomBorderTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][3]).toFixed(2)) + '</strong></td><td ' + AlignrightTSP + ' ' + TableBottomBorderTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][4]).toFixed(2)) + '</strong></td></tr>';
+                         }
+                         else {
+                             if (iTSP == 0) {
+                                 TableContentTSP = TableContentTSP + '<tr><td><strong>' + dataaaa.aaDatafloorwisemetal[iTSP][0] + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][1]).toFixed(2)) + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][2]).toFixed(2)) + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][3]).toFixed(2)) + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][4]).toFixed(2)) + '</strong></td><td rowspan="' + rowcountTSP + '" style="padding-left:5px;"><i class="fa fa-chevron-right"></i></td></tr>';
+                             }
+                             else {
+                                 TableContentTSP = TableContentTSP + '<tr><td><strong>' + dataaaa.aaDatafloorwisemetal[iTSP][0] + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][1]).toFixed(2)) + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][2]).toFixed(2)) + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][3]).toFixed(2)) + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDatafloorwisemetal[iTSP][4]).toFixed(2)) + '</strong></td></tr>';
+                             }
+                         }
+                     }
+                     FinalTableTSP = TableStartTSP + TableHeadingTSP + TableContentTSP + TableEndTSP;
+                     $("#divFloorWiseMetalSales").html(FinalTableTSP);
+                 }
+             });
+
+            //FloorWise Metal Sales - End
+
+            //STOCK Availability - Start
+            
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "StockAvailabiltyTable?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaa) {
+                     console.log('aaDataStockAvailable :' + dataaa.aaDataStockAvailable);
+
+                     //$("#lblFloorFirst").html(dataaa.aaDataAxis[0]);
+                     //$("#lblFloorFirstAmt").html(dataaa.aaDataSalesAmt[0]);
+
+                     var TableBottomBorderSA = 'style="border-bottom-color:White; border-bottom-style:solid; border-bottom-width:thin;"';
+                     var TableStartSA = '<table width=100%><tr><th align="left" ' + TableBottomBorderSA + '><h5>';
+                     var TableEndSA = '</table>';
+                     var AlignrightSA = 'align="right" ';
+                     var TableHeadingSA = 'FLOOR</h5></th><th ' + AlignrightSA + TableBottomBorderSA + '><h5> NET WEIGHT</h5></th><th></th></tr>';
+                     var FinalTableSA = '';
+                     var TableContentSA = '';
+                     var rowcountSA = dataaa.aaDataStockAvailable.length;
+
+                     for (var iiSA = 0; iiSA < dataaa.aaDataStockAvailable.length; iiSA++) {
+                         if (iiSA == dataaa.aaDataStockAvailable.length - 1) {
+                             TableContentSA = TableContentSA + '<tr><td ' + TableBottomBorderSA + '><strong>' + dataaa.aaDataStockAvailable[iiSA][1] + '</strong></td><td ' + AlignrightSA + ' ' + TableBottomBorderSA + '><strong>' + (dataaa.aaDataStockAvailable[iiSA][2]).toFixed(3) + '</strong></td></tr>';
+                         }
+                         else {
+                             if (iiSA == 0) {
+                                 TableContentSA = TableContentSA + '<tr><td><strong>' + dataaa.aaDataStockAvailable[iiSA][1] + '</strong></td><td ' + AlignrightSA + '><strong>' + (dataaa.aaDataStockAvailable[iiSA][2]).toFixed(3) + '</strong></td><td rowspan="' + rowcountSA + '" style="padding-left:5px;"><i class="fa fa-chevron-right"></i></td></tr>';
+                             }
+                             else {
+                                 TableContentSA = TableContentSA + '<tr><td><strong>' + dataaa.aaDataStockAvailable[iiSA][1] + '</strong></td><td ' + AlignrightSA + '><strong>' + (dataaa.aaDataStockAvailable[iiSA][2]).toFixed(3) + '</strong></td></tr>';
+                             }
+                         }
+                     }
+
+                     FinalTableSA = TableStartSA + TableHeadingSA + TableContentSA + TableEndSA;
+
+                     $('#divStockAvailability').html(FinalTableSA);
+                 }
+             });
+
+
+            //STOCK Availability - End
+
+            //FLOOR WISE CHIT REPORT - Start
+            $.ajax
+            ({
+                type: "POST",
+                url: "Dashboardchit?Branch=" + Branch,
+                dataType: "json",
+                success: function (dataaa) {
+                    console.log('aaDataDashboardchitrpt :' + dataaa.aaDataDashboardchitrpt);
+                    $('#lblexistingcount').html(dataaa.aaDataDashboardchitrpt[0][2]);
+                    $('#lblNewcount').html(dataaa.aaDataDashboardchitrpt[1][2]);
+                    $('#lblMaturedcount').html(dataaa.aaDataDashboardchitrpt[2][2]);
+                    $('#lblDiscontinuedcount').html(dataaa.aaDataDashboardchitrpt[3][2]);
+                    $('#lblRejoincount').html(dataaa.aaDataDashboardchitrpt[4][2]);
+                    $('#lblexistingamt').html(AmountWithComma(dataaa.aaDataDashboardchitrpt[0][1]));
+                    $('#lblNewamt').html(AmountWithComma(dataaa.aaDataDashboardchitrpt[1][1]));
+                    $('#lblMaturedamt').html(AmountWithComma(dataaa.aaDataDashboardchitrpt[2][1]));
+                    $('#lblDiscontinuedamt').html(AmountWithComma(dataaa.aaDataDashboardchitrpt[3][1]));
+                    $('#lblRejoinamt').html(AmountWithComma(dataaa.aaDataDashboardchitrpt[4][1]));
+                }
+            });
+
+            //FLOOR WISE CHIT REPORT - End
+
+            //STORE WISE SALES - Start
+            var metal = "";
+            var fromdate = "";
+            var todate = "";
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "ComparisonTop10Sales?MetalID=" + metal + "&FromDate=" + fromdate + "&ToDate=" + todate + "&Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     console.log('ComparisonTop10Sales :' + dataaaa.aaDataMLchart);
+
+                     var TableBottomBorderSWS = 'style="border-bottom-color:White; border-bottom-style:solid; border-bottom-width:thin;"';
+                     var TableStartSWS = '<table width=100%><tr><th align="left" ' + TableBottomBorderSWS + '><h5>';
+                     var TableEndSWS = '</table>';
+                     var AlignrightSWS = 'align="right" ';
+                     var TableHeadingSWS = 'ITEM</h5></th><th ' + AlignrightSWS + TableBottomBorderSWS + '><h5> NET WEIGHT</h5></th><th></th></tr>';
+                     var FinalTableSWS = '';
+                     var TableContentSWS = '';
+                     var rowcountSWS = dataaaa.aaDataMLchart.length;
+
+                     for (var ii = 0; ii < dataaaa.aaDataMLchart.length; ii++) {
+                         if (ii == dataaaa.aaDataMLchart.length - 1) {
+                             TableContentSWS = TableContentSWS + '<tr><td ' + TableBottomBorderSWS + '><strong>' + dataaaa.aaDataMLchart[ii][0] + '</strong></td><td ' + AlignrightSWS + ' ' + TableBottomBorderSWS + '><strong>' +(dataaaa.aaDataMLchart[ii][1]).toFixed(3) + '</strong></td></tr>';
+                         }
+                         else {
+                             if (ii == 0) {
+                                 TableContentSWS = TableContentSWS + '<tr><td><strong>' + dataaaa.aaDataMLchart[ii][0] + '</strong></td><td ' + AlignrightSWS + '><strong>' + (dataaaa.aaDataMLchart[ii][1]).toFixed(3) + '</strong></td><td rowspan="' + rowcountSWS + '" style="padding-left:5px;"><i class="fa fa-chevron-right"></i></td></tr>';
+                             }
+                             else {
+                                 TableContentSWS = TableContentSWS + '<tr><td><strong>' + dataaaa.aaDataMLchart[ii][0] + '</strong></td><td ' + AlignrightSWS + '><strong>' + (dataaaa.aaDataMLchart[ii][1]).toFixed(3) + '</strong></td></tr>';
+                             }
+                         }
+                     }
+
+                     FinalTableSWS = TableStartSWS + TableHeadingSWS + TableContentSWS + TableEndSWS;
+                     $("#divStoreWiseSales").html(FinalTableSWS);
+                 }
+             });
+            //STORE WISE SALES - End
+
+            //Special Approvals - Start
+
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "SpecialApprovals?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataa) {
+                     console.log('SpecialApprovals :' + dataa.aaDataSpecialApproval);
+                     console.log('SpecialReturns :' + dataa.aaDataSalesReturns);
+                     //                     var CanvasStartEnd = "<canvas id='temp1' width='100' height='35'> </canvas>";
+                     //                     var para = "<p>"; //class='text-center large-thin'
+                     //                     var SpanStart = "<span class='animate-number'>"; //data-values='07'
+                     //                     var ParaSpanEnd = "</span></p>";
+                     //                     var Dataone = "<h4>Customer Count</h4>" + dataa.aaDataSpecialApproval[0][0] + "<h4>Total Count</h4>" + dataa.aaDataSpecialApproval[0][1]; //<h3>APPROVALS</h3>
+                     //                     var DataTwo = "<h3>SALES RETURN</h3><h5>TOTAL Count</h4>" + dataa.aaDataSalesReturns[0][0] + "<h5>Total AMOUNT</h4>" + dataa.aaDataSalesReturns[0][2];
+                     //                     var TextFinal = "";
+                     //                     TextFinal = CanvasStartEnd + para + SpanStart + Dataone; //+ DataTwo
+                     //                     $('#SplApprovals').html(TextFinal);
+                     $('#lblcustomercount').html(dataa.aaDataSpecialApproval[0][0]);
+                     $('#lblcustomertotalcount').html(dataa.aaDataSpecialApproval[0][1]);
+                     $('#lblcustomertotalamt').html(AmountWithComma((dataa.aaDataSpecialApproval[0][2]).toFixed(2))); 
+                     $('#lbltotalcountSR').html(dataa.aaDataSalesReturns[0][0]);
+                     $('#lbltotalamountSR').html(AmountWithComma((dataa.aaDataSalesReturns[0][2]).toFixed(2)));
+                 }
+             });
+
+
+
+
+            //Special Approvals - End
+
+            //Top 10 counter wise sales start//
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "Top10CounterSales?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     console.log('SalesVsTarget :' + dataaaa.aaDataTop10CounterSales);
+
+                     var TableBottomBorder = 'style="border-bottom-color:White; border-bottom-style:solid; border-bottom-width:thin;"';
+                     var TableStart = '<table width=100%><tr><th align="left" ' + TableBottomBorder + '><h5>';
+                     var TableEnd = '</table>';
+                     var Alignright = 'align="right" ';
+                     var TableHeading = 'COUNTER</h5></th><th ' + Alignright + TableBottomBorder + '><h5> NET WEIGHT</h5></th><th ' + Alignright + TableBottomBorder + '><h5> AMOUNT</h5></th><th></th></tr>';
+                     var FinalTable = '';
+                     var TableContent = '';
+                     var rowcount = dataaaa.aaDataTop10CounterSales.length;
+
+                     for (var ii = 0; ii < dataaaa.aaDataTop10CounterSales.length; ii++) {
+                         if (ii == dataaaa.aaDataTop10CounterSales.length - 1) {
+                             TableContent = TableContent + '<tr><td ' + TableBottomBorder + '><strong>' + dataaaa.aaDataTop10CounterSales[ii][0] + '</strong></td><td ' + Alignright + ' ' + TableBottomBorder + '><strong>' + (dataaaa.aaDataTop10CounterSales[ii][2]).toFixed(3) + '</strong></td><td ' + Alignright + ' ' + TableBottomBorder + '><strong>' + AmountWithComma((dataaaa.aaDataTop10CounterSales[ii][1]).toFixed(2)) + '</strong></td></tr>';
+                         }
+                         else {
+                             if (ii == 0) {
+                                 TableContent = TableContent + '<tr><td><strong>' + dataaaa.aaDataTop10CounterSales[ii][0] + '</strong></td><td ' + Alignright + '><strong>' + (dataaaa.aaDataTop10CounterSales[ii][2]).toFixed(3) + '</strong></td><td ' + Alignright + '><strong>' + AmountWithComma((dataaaa.aaDataTop10CounterSales[ii][1]).toFixed(2)) + '</strong></td><td rowspan="' + rowcount + '" style="padding-left:5px;"><i class="fa fa-chevron-right"></i></td></tr>';
+                             }
+                             else {
+                                 TableContent = TableContent + '<tr><td><strong>' + dataaaa.aaDataTop10CounterSales[ii][0] + '</strong></td><td ' + Alignright + '><strong>' + (dataaaa.aaDataTop10CounterSales[ii][2]).toFixed(3) + '</strong></td><td ' + Alignright + '><strong>' + AmountWithComma((dataaaa.aaDataTop10CounterSales[ii][1]).toFixed(2)) + '</strong></td></tr>';
+                             }
+                         }
+                     }
+
+                     FinalTable = TableStart + TableHeading + TableContent + TableEnd;
+                     $("#divTop10Counterwisesales").html(FinalTable);
+                 }
+             });
+
+            //Top 10 counter wise sales end//  
+
+
+            //Estimation Conversion - Start
+
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "Estimation?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     $('#lblSales').html(dataaaa.aaDataEstimationRpt[0][1]);
+                     $('#lblNoSales').html(dataaaa.aaDataEstimationRpt[1][1]);
+                     $('#lblSalesAmt').html(AmountWithComma((dataaaa.aaDataEstimationRpt[0][2]).toFixed(2)));
+                     $('#lblNoSalesAmt').html(AmountWithComma((dataaaa.aaDataEstimationRpt[1][2]).toFixed(2)));
+                 }
+             });
+
+
+            //Estimation Conversion - End
+
+            //Order Summary - Start
+
+            $.ajax
+                    ({
+                        type: "POST",
+                        url: "Orderdetails?Branch=" + Branch,
+                        dataType: "json",
+                        success: function (dataa) {
+                            console.log('Orderdetails :' + dataa.aaDataOrdersummary);
+                            $('#lblOrderCount').html(dataa.aaDataOrdersummaryTB0[0][1]);
+                            $('#lblPendingCount').html(dataa.aaDataOrdersummaryTB0[1][1]);
+                            $('#lblDueCount').html(dataa.aaDataOrdersummaryTB0[2][1]);
+                            $('#lblDeliveredInTime').html(dataa.aaDataOrdersummaryTB1[0][1]);
+                            $('#lblDeliveredDelayed').html(dataa.aaDataOrdersummaryTB1[1][1]);
+                            $('#lblPendingRTD').html(dataa.aaDataOrdersummaryTB2[2][1]);
+                            $('#lblPendingITS').html(dataa.aaDataOrdersummaryTB2[1][1]);
+                            $('#lblPendingPWU').html(dataa.aaDataOrdersummaryTB2[0][1]);
+                            $('#lblOverdueRTD').html(dataa.aaDataOrdersummaryTB3[2][1]);
+                            $('#lblOverdueITS').html(dataa.aaDataOrdersummaryTB3[1][1]);
+                            $('#lblOverduePWU').html(dataa.aaDataOrdersummaryTB3[0][1]);
+
+                        }
+                    });
+
+            //Order Summary -End
+
+            //Trend In Sales - Start
+
+            $.ajax
+                 ({
+                     type: "POST",
+                     url: "DashboardTrendinSales?Branch=" + Branch,
+                     dataType: "json",
+                     success: function (dataaa) {
+                         console.log('aaDataTrendinSalesrpt :' + dataaa.aaDataTrendinSalesrpt);
+                         var TableBottomBorderTIS = 'style="border-bottom-color:White; border-bottom-style:solid; border-bottom-width:thin;"';
+                         var TableStartTIS = '<table width=100%><tr><th align="left" ' + TableBottomBorderTIS + '><h5>';
+                         var TableEndTIS = '</table>';
+                         var AlignrightTIS = 'align="right" ';
+                         var TableHeadingTIS = 'DATE</h5></th><th ' + AlignrightTIS + TableBottomBorderTIS + '><h5> AMOUNT</h5></th></tr>';
+                         var FinalTableTIS = '';
+                         var TableContentTIS = '';
+
+                         for (iTIS = 0; iTIS < dataaa.aaDataTrendinSalesrpt.length; iTIS++) {
+                             var value = dataaa.aaDataTrendinSalesrpt[iTIS][1];
+                             var dtString = "Dummy";
+                             console.log('value :' + value);
+                             if (value.substring(0, 6) == "/Date(") {
+                                 var dt = new Date(parseInt(value.substring(6, value.length - 2)));
+                                 dtString = dt.getDate() + "/" + (dt.getMonth() + 1) + "/" + dt.getFullYear();
+                             }
+                             if (iTIS == dataaa.aaDataTrendinSalesrpt.length - 1) {
+                                 TableContentTIS = TableContentTIS + '<tr><td ' + TableBottomBorderTIS + '><strong>' + dtString + ' (' + dataaa.aaDataTrendinSalesrpt[iTIS][0] + ')' + '</strong></td><td ' + AlignrightTIS + ' ' + TableBottomBorderTIS + '><strong>' + AmountWithComma((dataaa.aaDataTrendinSalesrpt[iTIS][2]).toFixed(2)) + '</strong></td></tr>';
+                             }
+                             else {
+                                 TableContentTIS = TableContentTIS + '<tr><td><strong>' + dtString + ' (' + dataaa.aaDataTrendinSalesrpt[iTIS][0] + ')' + '</strong></td><td ' + AlignrightTIS + '><strong>' + AmountWithComma((dataaa.aaDataTrendinSalesrpt[iTIS][2]).toFixed(2)) + '</strong></td></tr>';
+                             }
+
+                             // trendsalesthisweek.push(dataaa.aaDataTrendinSalesrpt[i][0] + ',' + dataaa.aaDataTrendinSalesrpt[i][2]);
+                             // trendsaleslastweek.push(dataaa.aaDataTrendinSalesrpt[i][0] + ',' + dataaa.aaDataTrendinSalesrpt[i][4]);
+                             //divTrendInSales
+
+                         }
+                         FinalTableTIS = TableStartTIS + TableHeadingTIS + TableContentTIS + TableEndTIS;
+                         $("#divTrendInSales").html(FinalTableTIS);
+                     }
+                 });
+
+            //Trend In Sales - End
+
+            //Sales Person Performance -Start
+
+
+            $.ajax
+             ({
+                 type: "POST",
+                 url: "SalesPerformance?Branch=" + Branch,
+                 dataType: "json",
+                 success: function (dataaaa) {
+                     console.log('aaDataSalesPerformanceTop10 :' + dataaaa.aaDataSalesPerformanceTop10);
+                     var TableBottomBorderTSP = 'style="border-bottom-color:White; border-bottom-style:solid; border-bottom-width:thin;"';
+                     var TableStartTSP = '<table width=100%><tr><th align="left" ' + TableBottomBorderTSP + '><h5>';
+                     var TableEndTSP = '</table>';
+                     var AlignrightTSP = 'align="right" ';
+                     var TableHeadingTSP = 'EMPLOYEE</h5></th><th ' + AlignrightTSP + TableBottomBorderTSP + '><h5> AMOUNT</h5></th><th></th></tr>';
+                     var FinalTableTSP = '';
+                     var TableContentTSP = '';
+                     var rowcountTSP = dataaaa.aaDataSalesPerformanceTop10.length;
+
+                     for (var iTSP = 0; iTSP < dataaaa.aaDataSalesPerformanceTop10.length; iTSP++) {
+                         if (iTSP == dataaaa.aaDataSalesPerformanceTop10.length - 1) {
+                             TableContentTSP = TableContentTSP + '<tr><td ' + TableBottomBorderTSP + '><strong>' + dataaaa.aaDataSalesPerformanceTop10[iTSP][0] + '</strong></td><td ' + AlignrightTSP + ' ' + TableBottomBorderTSP + '><strong>' + AmountWithComma((dataaaa.aaDataSalesPerformanceTop10[iTSP][1]).toFixed(2)) + '</strong></td></tr>';
+                         }
+                         else {
+                             if (iTSP == 0) {
+                                 TableContentTSP = TableContentTSP + '<tr><td><strong>' + dataaaa.aaDataSalesPerformanceTop10[iTSP][0] + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDataSalesPerformanceTop10[iTSP][1]).toFixed(2)) + '</strong></td><td rowspan="' + rowcountTSP + '" style="padding-left:5px;"><i class="fa fa-chevron-right"></i></td></tr>';
+                             }
+                             else {
+                                 TableContentTSP = TableContentTSP + '<tr><td><strong>' + dataaaa.aaDataSalesPerformanceTop10[iTSP][0] + '</strong></td><td ' + AlignrightTSP + '><strong>' + AmountWithComma((dataaaa.aaDataSalesPerformanceTop10[iTSP][1]).toFixed(2)) + '</strong></td></tr>';
+                             }
+                         }
+                     }
+                     FinalTableTSP = TableStartTSP + TableHeadingTSP + TableContentTSP + TableEndTSP;
+                     $("#divSalesPersonPerformance").html(FinalTableTSP);
+
+
+                 }
+             });
+            //Sales Person Performance -End
+
+            //SILVERMINE Target Vs Sales - Start
+
+            $.ajax
+            ({
+                type: "POST",
+                url: "DailySalesTargetSIL?Branch=" + Branch,
+                dataType: "json",
+                success: function (dataaaa) {
+                    $('#lbltargetsilver').html((dataaaa.aaDataSalesTargetSILVER[0][1]).toFixed(3));
+                    $('#lblsalessilver').html((dataaaa.aaDataSalesTargetSILVER[0][2]).toFixed(3));
+                }
+            });
+
+            //SILVERMINE Target Vs Sales - End
+
+        });
+      
+    </script>
+</body>
+</html>
